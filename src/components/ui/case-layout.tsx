@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { CaseCarousel } from "@/components/ui/case-carousel";
 import { CryptoTweetsCarousel } from "@/components/ui/crypto-tweets-carousel";
