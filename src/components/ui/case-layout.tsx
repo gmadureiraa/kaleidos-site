@@ -11,6 +11,7 @@ interface CaseLayoutProps {
   caseData: {
     id: string;
     nome: string;
+    tags?: string[];
     descricao: string;
     descricao_en?: string;
     fraseImpactante?: string;
