@@ -47,6 +47,43 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scroll 15s linear infinite;
+  }
 }
 
 :root {
@@ -255,7 +292,7 @@
   .carousel-horizontal {
     gap: 1rem;
   }
-  
+
   .carousel-item {
     width: 240px !important;
     height: 360px !important;
@@ -266,7 +303,7 @@
   .carousel-horizontal {
     gap: 1rem;
   }
-  
+
   .carousel-item {
     width: 280px !important;
     height: 420px !important;
@@ -357,7 +394,7 @@
   .carousel-reels {
     max-height: 500px;
   }
-  
+
   .carousel-feed {
     max-height: 400px;
   }
@@ -367,7 +404,7 @@
   .carousel-reels {
     max-height: 700px;
   }
-  
+
   .carousel-feed {
     max-height: 600px;
   }
@@ -405,4 +442,3 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-

@@ -2,6 +2,7 @@
 
 // Duplicado de src/app/page.tsx
 import HeroKaleidos from "@/components/ui/hero-kaleidos";
+import { TrustedBy } from "@/components/ui/trusted-by";
 import BentoGrid from "@/components/bento-grid";
 import FAQSection from "@/components/faq-section";
 import ProcessSection from "@/components/process-section";
@@ -14,6 +15,7 @@ export default function HomeV2() {
   return (
     <main className="min-h-screen bg-white">
       <HeroKaleidos />
+      <TrustedBy />
       <BentoGrid />
       <ProcessSection variant="light" />
       <CasesCarousel />
