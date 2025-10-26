@@ -1,11 +1,35 @@
-"use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAllCases, type CaseData } from "@/lib/case-data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cases de Sucesso | Kaleidos Digital - Marketing e Conteúdo",
+  description: "Confira nossos cases de sucesso com Crypto.com, Mercado Bitcoin, Jornal Cripto, Bit das Minas e mais. Resultados reais em crescimento de marcas através de conteúdo criativo e estratégias digitais.",
+  keywords: "cases de sucesso, marketing digital, crescimento de marca, conteúdo criativo, estratégias digitais, crypto.com, mercado bitcoin, jornal cripto, bit das minas, kaleidos digital",
+  openGraph: {
+    title: "Cases de Sucesso | Kaleidos Digital",
+    description: "Confira nossos cases de sucesso com Crypto.com, Mercado Bitcoin, Jornal Cripto e mais. Resultados reais em crescimento de marcas.",
+    images: [
+      {
+        url: '/Imagens/Capa.png',
+        width: 1200,
+        height: 630,
+        alt: 'Cases de Sucesso - Kaleidos Digital',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Cases de Sucesso | Kaleidos Digital",
+    description: "Confira nossos cases de sucesso com Crypto.com, Mercado Bitcoin, Jornal Cripto e mais.",
+    images: ['/Imagens/Capa.png'],
+  },
+};
 
 // const allTags = Array.from(new Set(getAllCases().flatMap(p => p.tags)));
 
@@ -174,7 +198,7 @@ export default function CasesPage() {
                     <>
                       <Image
                         src={getCaseCover(proj.id)!}
-                        alt={`Capa ${proj.nome}`}
+                        alt={`Capa do case ${proj.nome} - Kaleidos Digital`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -267,7 +291,7 @@ export default function CasesPage() {
                   ) : (
                     <Image
                       src={modalCase.media[currentImageIndex].src}
-                      alt={modalCase.nome}
+                      alt={`Material visual do case ${modalCase.nome} - Kaleidos Digital`}
                       width={800}
                       height={600}
                       className="max-w-full max-h-[80vh] object-contain"

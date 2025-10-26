@@ -33,7 +33,7 @@ export function TrustedBy() {
               <div key={client.name} className="flex-shrink-0 mx-2 flex items-center justify-center">
                 <Image
                   src={client.logo}
-                  alt={client.name}
+                  alt={`Logo ${client.name} - Parceiro que confia na Kaleidos Digital`}
                   width={120}
                   height={60}
                   className="object-contain h-16 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
@@ -46,7 +46,7 @@ export function TrustedBy() {
               <div key={`${client.name}-2`} className="flex-shrink-0 mx-2 flex items-center justify-center">
                 <Image
                   src={client.logo}
-                  alt={client.name}
+                  alt={`Logo ${client.name} - Parceiro que confia na Kaleidos Digital`}
                   width={120}
                   height={60}
                   className="object-contain h-16 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
