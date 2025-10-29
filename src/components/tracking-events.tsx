@@ -23,28 +23,15 @@ export function useCaseTracking() {
   const { trackEvent } = useAnalytics();
 
   const trackCaseView = (caseName: string) => {
-    trackEvent('case_view', {
-      case_name: caseName,
-      event_category: 'engagement',
-      event_label: 'case_view'
-    });
+    trackEvent('case_view', 'engagement', caseName);
   };
 
   const trackCaseVideoPlay = (caseName: string, videoName: string) => {
-    trackEvent('case_video_play', {
-      case_name: caseName,
-      video_name: videoName,
-      event_category: 'engagement',
-      event_label: 'video_play'
-    });
+    trackEvent('case_video_play', 'engagement', `${caseName} - ${videoName}`);
   };
 
   const trackCaseContact = (caseName: string) => {
-    trackEvent('case_contact', {
-      case_name: caseName,
-      event_category: 'conversion',
-      event_label: 'contact_form'
-    });
+    trackEvent('case_contact', 'conversion', caseName);
   };
 
   return {
@@ -59,19 +46,11 @@ export function useServiceTracking() {
   const { trackEvent } = useAnalytics();
 
   const trackServiceView = (serviceName: string) => {
-    trackEvent('service_view', {
-      service_name: serviceName,
-      event_category: 'engagement',
-      event_label: 'service_view'
-    });
+    trackEvent('service_view', 'engagement', serviceName);
   };
 
   const trackServiceContact = (serviceName: string) => {
-    trackEvent('service_contact', {
-      service_name: serviceName,
-      event_category: 'conversion',
-      event_label: 'service_contact'
-    });
+    trackEvent('service_contact', 'conversion', serviceName);
   };
 
   return {
@@ -85,20 +64,11 @@ export function useNavigationTracking() {
   const { trackEvent } = useAnalytics();
 
   const trackMenuClick = (menuItem: string) => {
-    trackEvent('menu_click', {
-      menu_item: menuItem,
-      event_category: 'navigation',
-      event_label: 'menu_click'
-    });
+    trackEvent('menu_click', 'navigation', menuItem);
   };
 
   const trackCTAClick = (ctaType: string, location: string) => {
-    trackEvent('cta_click', {
-      cta_type: ctaType,
-      location: location,
-      event_category: 'conversion',
-      event_label: 'cta_click'
-    });
+    trackEvent('cta_click', 'conversion', `${ctaType} - ${location}`);
   };
 
   return {
@@ -112,20 +82,11 @@ export function usePerformanceTracking() {
   const { trackEvent } = useAnalytics();
 
   const trackPageLoadTime = (loadTime: number) => {
-    trackEvent('page_load_time', {
-      load_time: loadTime,
-      event_category: 'performance',
-      event_label: 'page_load'
-    });
+    trackEvent('page_load_time', 'performance', 'page_load', loadTime);
   };
 
   const trackVideoLoadTime = (videoName: string, loadTime: number) => {
-    trackEvent('video_load_time', {
-      video_name: videoName,
-      load_time: loadTime,
-      event_category: 'performance',
-      event_label: 'video_load'
-    });
+    trackEvent('video_load_time', 'performance', videoName, loadTime);
   };
 
   return {
