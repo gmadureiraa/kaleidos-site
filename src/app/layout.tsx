@@ -3,7 +3,10 @@ import { Suspense } from "react";
 import localFont from "next/font/local";
 import { Navbar } from "@/components/navbar";
 import { StructuredData } from "@/components/structured-data";
-import { Analytics } from "@/components/analytics";
+import { GoogleAnalytics } from "@/components/analytics";
+import { Umami } from "@/components/umami";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
+import { SmoothScrollProvider } from "@/components/ui/smooth-scroll-provider";
 import "./globals.css";
 
 // Fontes locais otimizadas
@@ -126,14 +129,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${atelier.variable} ${inter.variable} ${gridlite.variable} font-sans`}>
-        <StructuredData />
-        <Suspense fallback={null}>
-          <Navbar />
-        </Suspense>
-        <Suspense fallback={null}>
-          {children}
-        </Suspense>
-        <Analytics />
+        <SmoothScrollProvider>
+          <ErrorBoundary>
+            <StructuredData />
+            <Suspense fallback={null}>
+              <Navbar />
+            </Suspense>
+            <Suspense fallback={null}>
+              {children}
+            </Suspense>
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+            <Umami />
+          </ErrorBoundary>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

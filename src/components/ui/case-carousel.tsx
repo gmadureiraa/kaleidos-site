@@ -214,7 +214,7 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
               >
                 <Image
                   src={item.src}
-                  alt={item.alt || `Case ${title} - Material visual ${index + 1} - Kaleidos Digital`}
+                  alt={item.alt || `${title} - Imagem ${index + 1}`}
                   className="rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
                   width={isReelsFormat ? 280 : 320}
                   height={isReelsFormat ? Math.round((isReelsVertical ? 280 * 16/9 : 280 * 5/4)) : Math.round(320)}

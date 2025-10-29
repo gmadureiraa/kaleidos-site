@@ -66,24 +66,125 @@
     }
   }
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
+}
 
-.animate-scroll {
-  animation: scroll 20s linear infinite;
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee-scroll 48s linear infinite;
+  width: 200%; /* 200% para duplicar o conteúdo */
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.4rem; /* Espaçamento aumentado em 40% (1rem -> 1.4rem) */
+}
+
+.marquee-item img {
+  width: 150px !important; /* Reduzido em 50% (300px -> 150px) */
+  height: 75px !important; /* Reduzido em 50% (150px -> 75px) */
 }
 
 @media (max-width: 768px) {
-  .animate-scroll {
-    animation: scroll 15s linear infinite;
+  .marquee-content {
+    animation: marquee-scroll 16s linear infinite; /* 2x mais rápido no mobile (32s -> 16s) */
   }
+}
+
+/* Responsividade e UX Melhorias */
+
+/* Safe area support for mobile devices */
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-right: env(safe-area-inset-right);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  a, 
+  input, 
+  select, 
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Ensure adequate spacing for touch */
+  .touch-target {
+    padding: 12px 16px;
+    min-height: 44px;
+  }
+}
+
+/* Better mobile typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Improve readability on mobile */
+  body {
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 2rem 0;
+  }
+  
+  .mobile-landscape-hidden {
+    display: none;
+  }
+}
+
+/* Portrait orientation adjustments */
+@media (orientation: portrait) and (max-width: 768px) {
+  .mobile-portrait-full {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+}
+
+/* Improved focus states for accessibility */
+*:focus {
+  outline: 2px solid #ec4899;
+  outline-offset: 2px;
+}
+
+/* Better button focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #ec4899;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 :root {

@@ -126,23 +126,23 @@ export function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
             {/* CTA Button */}
-            <Button asChild className="bg-[#7CFF6B] text-black hover:bg-[#64e04d] font-semibold">
+            <Button asChild className="bg-[#7CFF6B] text-black hover:bg-[#64e04d] font-semibold touch-target">
               <Link href={withLang('/contato')}>
                 {t('nav','cta')}
               </Link>
             </Button>
             {/* Language switcher - desktop */}
             <div className="flex items-center gap-1 ml-2">
-              <button onClick={() => switchLocale('pt')} className={`text-xs px-2 py-1 rounded ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
-              <button onClick={() => switchLocale('en')} className={`text-xs px-2 py-1 rounded ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
+              <button onClick={() => switchLocale('pt')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
+              <button onClick={() => switchLocale('en')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
             </div>
           </div>
 
           {/* Mobile: language switch + menu button */}
           <div className="lg:hidden flex items-center gap-2">
             <div className="flex items-center gap-1">
-              <button onClick={() => switchLocale('pt')} className={`text-xs px-2 py-1 rounded ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
-              <button onClick={() => switchLocale('en')} className={`text-xs px-2 py-1 rounded ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
+              <button onClick={() => switchLocale('pt')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
+              <button onClick={() => switchLocale('en')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
             </div>
             <Button
               variant="ghost"
@@ -188,7 +188,7 @@ export function Navbar() {
               </div>
               {/* Mobile CTA */}
               <div className="pt-4 border-t border-gray-800">
-                <Button asChild className="w-full bg-[#7CFF6B] text-black hover:bg-[#64e04d] font-semibold">
+                <Button asChild className="w-full bg-[#7CFF6B] text-black hover:bg-[#64e04d] font-semibold touch-target">
                   <Link href={withLang('/contato')}>
                     {t('nav','cta')}
                   </Link>

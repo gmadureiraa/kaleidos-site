@@ -1,14 +1,10 @@
-import { casesData } from "@/lib/case-data";
-
 export function StructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kaleidos.com.br';
-  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Kaleidos Digital",
-    "url": baseUrl,
-    "logo": `${baseUrl}/Imagens/Capa.png`,
+    "url": "https://kaleidos.com.br",
+    "logo": "https://kaleidos.com.br/Imagens/Capa.png",
     "description": "Especialistas em crescimento de marcas através de conteúdo criativo, automações inteligentes e lançamentos estratégicos",
     "foundingDate": "2024",
     "address": {
@@ -61,17 +57,7 @@ export function StructuredData() {
           }
         }
       ]
-    },
-    "knowsAbout": casesData.map(caseItem => ({
-      "@type": "CreativeWork",
-      "name": caseItem.nome,
-      "description": caseItem.descricao,
-      "url": `${baseUrl}/cases/${caseItem.id}`,
-      "creator": {
-        "@type": "Organization",
-        "name": "Kaleidos Digital"
-      }
-    }))
+    }
   };
 
   return (

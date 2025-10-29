@@ -9,9 +9,10 @@ import ProcessSection from "@/components/process-section";
 import { CtaAjuda } from "@/components/ui/cta-ajuda";
 import CasesCarousel from "@/components/cases-carousel";
 import { FooterDemo } from "@/components/ui/footer-demo";
-
+import { useTracking } from "@/hooks/use-tracking";
 
 export default function HomeV2() {
+  useTracking();
   return (
     <main className="min-h-screen bg-white">
       <HeroKaleidos />

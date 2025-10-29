@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { CaseCarousel } from "@/components/ui/case-carousel";
 import { CryptoTweetsCarousel } from "@/components/ui/crypto-tweets-carousel";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { useI18n } from "@/i18n/useI18n";
 
 interface CaseLayoutProps {
@@ -57,9 +58,16 @@ export function CaseLayout({ caseData, clientType, visualSection }: CaseLayoutPr
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Minimalista */}
+      {/* Header com Breadcrumbs */}
       <div className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 py-6">
+          <Breadcrumbs 
+            items={[
+              { label: locale === 'en' ? 'Cases' : 'Cases', href: '/cases' },
+              { label: nome }
+            ]}
+            className="mb-4"
+          />
           <Link 
             href={locale==='en'?'/cases?lang=en':'/cases'} 
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors text-sm"

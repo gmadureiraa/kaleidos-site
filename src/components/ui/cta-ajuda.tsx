@@ -6,10 +6,14 @@ import { CheckCircle, Brain, PenTool, Video, Mail, Rocket, FileText, Workflow, B
 import { useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
+import { useAnalytics } from "@/components/analytics";
+import { useUmami } from "@/hooks/use-umami";
 
 export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const { locale } = useI18n();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const { trackClick, trackConversion } = useAnalytics();
+  const { trackButtonClick, trackConversion: trackUmamiConversion } = useUmami();
 
   const handleWhatsApp = () => {
     const selected = selectedServices.join(', ');
@@ -17,6 +21,18 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
       ? (locale==='pt' ? `Olá! Preciso de ajuda com: ${selected}. Podem me ajudar?` : `Hello! I need help with: ${selected}. Can you help me?`)
       : (locale==='pt' ? "Olá! Preciso da ajuda da Kaleidos. Podem me ajudar?" : "Hello! I need Kaleidos' help. Can you help me?");
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Track click and conversion (Google Analytics)
+    trackClick("whatsapp_cta", "contact");
+    trackConversion("whatsapp_message", selectedServices.length > 0 ? selectedServices.length : 0);
+    
+    // Track with Umami
+    trackButtonClick("whatsapp_cta", "cta_section", "whatsapp_click");
+    trackUmamiConversion("whatsapp_message", selectedServices.length > 0 ? selectedServices.length : 0, {
+      services_selected: selectedServices,
+      location: "cta_section"
+    });
+    
     window.open(whatsappUrl, '_blank');
   };
 
@@ -109,16 +125,16 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
   ];
 
   return (
-    <section id="ajuda-section" className={`w-full ${variant==='dark' ? 'bg-black' : 'bg-white'} py-16 px-4`}>
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <h2 className={`text-5xl sm:text-6xl font-bold ${variant==='dark' ? 'text-[#7CFF6B]' : 'text-black'} mb-4 text-center font-display tracking-tight`}>
+    <section id="ajuda-section" className={`w-full ${variant==='dark' ? 'bg-black' : 'bg-white'} py-20 px-6`}>
+      <div className="max-w-5xl mx-auto flex flex-col items-center">
+        <h2 className={`text-6xl sm:text-7xl font-bold ${variant==='dark' ? 'text-[#7CFF6B]' : 'text-black'} mb-6 text-center font-display tracking-tight`}>
           {locale==='pt' ? 'Nós podemos te ajudar!' : 'We can help you!'}
         </h2>
-        <p className={`mb-10 ${variant==='dark' ? 'text-white' : 'text-neutral-700'} text-lg text-center`}>{locale==='pt' ? 'Nos diga o que você precisa' : 'Tell us what you need'}</p>
+        <p className={`mb-12 ${variant==='dark' ? 'text-white' : 'text-neutral-700'} text-xl text-center`}>{locale==='pt' ? 'Nos diga o que você precisa' : 'Tell us what you need'}</p>
         
-        <div className="max-w-[800px] mx-auto mb-10">
+        <div className="max-w-[900px] mx-auto mb-12">
           <motion.div 
-            className="flex flex-wrap gap-3 overflow-visible justify-center"
+            className="flex flex-wrap gap-4 overflow-visible justify-center"
             layout
             transition={{
               type: "spring",
@@ -133,11 +149,14 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 <motion.button
                   key={service.value}
                   onClick={() => {
+                    const wasSelected = selectedServices.includes(service.value);
                     setSelectedServices((prev) =>
                       prev.includes(service.value)
                         ? prev.filter(v => v !== service.value)
                         : [...prev, service.value]
                     );
+                    // Track service selection
+                    trackButtonClick(`service_${service.value}`, "cta_section", wasSelected ? "unselect" : "select");
                   }}
                   layout
                   initial={false}
@@ -151,7 +170,7 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
                     scale: { duration: 0.1 },
                   }}
                    className={`
-                    inline-flex items-center px-4 py-2 rounded-full text-sm sm:text-base font-medium
+                    inline-flex items-center px-5 py-3 rounded-full text-base sm:text-lg font-medium
                     whitespace-nowrap overflow-hidden border
                     ${variant==='dark'
                       ? `${isSelected ? 'bg-[#2a1711] text-[#ff9066] border-transparent' : 'bg-zinc-700/60 text-zinc-300 border-zinc-600'}`
@@ -197,7 +216,7 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
 
         <Button
           onClick={handleWhatsApp}
-          className={`${variant==='dark' ? 'bg-[#7CFF6B] text-black hover:bg-[#5be04d]' : 'bg-black text-white hover:bg-neutral-800'} px-12 py-4 rounded-full font-bold text-lg shadow-lg transition-colors`}
+          className={`${variant==='dark' ? 'bg-[#7CFF6B] text-black hover:bg-[#5be04d]' : 'bg-black text-white hover:bg-neutral-800'} px-16 py-5 rounded-full font-bold text-xl shadow-lg transition-colors touch-target`}
         >
           {locale==='pt' ? 'Enviar Mensagem' : 'Send Message'}
         </Button>

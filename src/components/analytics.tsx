@@ -2,72 +2,93 @@
 
 import Script from "next/script";
 
-export function Analytics() {
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+interface GoogleAnalyticsProps {
+  gaId: string;
+}
 
-  if (!GA_MEASUREMENT_ID) {
-    return null;
-  }
+export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
+  if (!gaId) return null;
 
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            page_title: document.title,
-            page_location: window.location.href,
-            custom_map: {
-              'custom_parameter_1': 'client_type',
-              'custom_parameter_2': 'service_type'
-            }
-          });
-        `}
-      </Script>
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
     </>
   );
 }
 
-// Hook para tracking de eventos customizados
+// Hook para tracking de eventos
 export function useAnalytics() {
-  const trackEvent = (eventName: string, parameters?: Record<string, unknown>) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, parameters);
+  const trackEvent = (
+    eventName: string,
+    eventCategory: string,
+    eventLabel?: string,
+    value?: number
+  ) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", eventName, {
+        event_category: eventCategory,
+        event_label: eventLabel,
+        value: value,
+      });
     }
   };
 
   const trackPageView = (url: string) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("config", process.env.NEXT_PUBLIC_GA_ID!, {
         page_path: url,
       });
     }
   };
 
-  const trackConversion = (conversionId: string, conversionLabel: string) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'conversion', {
-        send_to: `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/${conversionId}/${conversionLabel}`,
-      });
-    }
+  const trackClick = (elementName: string, location: string) => {
+    trackEvent("click", "user_interaction", elementName);
+    trackEvent("element_click", location, elementName);
+  };
+
+  const trackConversion = (conversionType: string, value?: number) => {
+    trackEvent("conversion", conversionType, undefined, value);
+  };
+
+  const trackScroll = (percentage: number) => {
+    trackEvent("scroll", "engagement", undefined, percentage);
+  };
+
+  const trackTimeOnPage = (seconds: number) => {
+    trackEvent("time_on_page", "engagement", undefined, seconds);
   };
 
   return {
     trackEvent,
     trackPageView,
+    trackClick,
     trackConversion,
+    trackScroll,
+    trackTimeOnPage,
   };
 }
 
-// Declaração global para TypeScript
+// Extend Window interface
 declare global {
   interface Window {
-    gtag: (...args: unknown[]) => void;
+    gtag: (...args: Array<unknown>) => void;
+    dataLayer: Array<unknown>;
   }
-} 
+}

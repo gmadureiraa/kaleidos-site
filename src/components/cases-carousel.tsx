@@ -4,11 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { CasesCarouselSkeleton } from "@/components/ui/skeletons";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
+import { useUmami } from "@/hooks/use-umami";
 
 const casesCarouselData = [
   {
@@ -94,10 +97,11 @@ const casesCarouselData = [
   }
 ];
 
-export default function CasesCarousel() {
+function CasesCarouselContent() {
   const { locale } = useI18n();
   const withLang = (path: string) => locale === 'en' ? `${path}${path.includes('?') ? '&' : '?' }lang=en` : path;
   const [isMobile, setIsMobile] = useState(false);
+  const { trackLinkClick, trackButtonClick } = useUmami();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -115,16 +119,16 @@ export default function CasesCarousel() {
   const isVideo = (src: string) => src.includes('.mp4') || src.includes('.mov') || src.includes('.avi');
 
   return (
-    <div className="w-full flex justify-center py-6 sm:py-8 lg:py-12 bg-black">
-      <div className="w-full max-w-7xl px-4">
+    <div className="w-full flex justify-center py-12 sm:py-16 lg:py-20 bg-black">
+      <div className="w-full max-w-7xl px-6 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true, amount: 0.7 }}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-display tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 font-display tracking-tight">
           Um resultado vale mais que mil palavras{" "}  
           </h2>
         </motion.div>
@@ -172,7 +176,11 @@ export default function CasesCarousel() {
         >
           {casesCarouselData.map((caseItem, idx) => (
             <SwiperSlide key={idx}>
-              <Link href={withLang(caseItem.href)} className="block group">
+              <Link 
+                href={withLang(caseItem.href)} 
+                className="block group"
+                onClick={() => trackLinkClick(caseItem.href, caseItem.title, "cases_carousel")}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -202,10 +210,10 @@ export default function CasesCarousel() {
                   </div>
                   
                   {/* Content - Bottom Section with Rectangle Shadow (35% of card height) */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[35%] p-0">
+                  <div className="absolute bottom-0 left-0 right-0 h-[40%] p-0">
                     {/* Rectangle with shadow for title, description and metric - full width */}
-                    <div className="bg-black/80 backdrop-blur-sm rounded-t-2xl p-4 sm:p-6 shadow-2xl h-full flex flex-col justify-center w-full">
-                      <h3 className="text-white font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 font-display text-left">
+                    <div className="bg-black/80 backdrop-blur-sm rounded-t-2xl p-6 sm:p-8 shadow-2xl h-full flex flex-col justify-center w-full">
+                      <h3 className="text-white font-bold text-xl sm:text-2xl mb-1.5 sm:mb-2 font-display text-left">
                         {caseItem.title}
                       </h3>
                       <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-2.5 sm:mb-3 text-left">
@@ -239,11 +247,22 @@ export default function CasesCarousel() {
           <Link 
             href="/cases"
             className="inline-block bg-pink-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-pink-600 transition-colors text-base sm:text-lg shadow-lg"
+            onClick={() => trackButtonClick("view_all_cases", "cases_carousel", "navigate_to_cases")}
           >
             Ver Todos os Cases
           </Link>
         </motion.div>
       </div>
     </div>
+  );
+}
+
+export default function CasesCarousel() {
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={<CasesCarouselSkeleton />}>
+        <CasesCarouselContent />
+      </Suspense>
+    </ErrorBoundary>
   );
 }

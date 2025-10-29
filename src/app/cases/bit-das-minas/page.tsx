@@ -1,8 +1,7 @@
+"use client";
+
 import { getCaseData } from "@/lib/case-data";
 import { CaseLayout } from "@/components/ui/case-layout";
-import { generateMetadata } from "@/lib/case-metadata";
-
-export { generateMetadata };
 
 export default function BitDasMinasCase() {
   const caseData = getCaseData("bit-das-minas");

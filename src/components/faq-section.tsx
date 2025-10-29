@@ -63,9 +63,9 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="w-full bg-neutral-100 py-12 sm:py-16 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-3xl border border-neutral-200 shadow-[0_8px_30px_rgba(0,0,0,0.05)] p-4 sm:p-6 md:p-6">
+    <section id="faq" className="w-full bg-neutral-100 py-16 sm:py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-3xl border border-neutral-200 shadow-[0_8px_30px_rgba(0,0,0,0.05)] p-6 sm:p-8 md:p-10">
           <div className="mb-4">
             <span className="inline-block text-[11px] font-semibold text-neutral-600 bg-neutral-100 px-2.5 py-0.5 rounded-full">FAQs</span>
           </div>
@@ -93,7 +93,7 @@ export default function FAQSection() {
                     onClick={() => toggleFAQ(index)}
                     className="w-full text-left flex items-center justify-between bg-neutral-100 hover:bg-neutral-200/60 transition-colors px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border border-neutral-200"
                   >
-                    <h3 className="text-sm sm:text-base font-semibold text-neutral-900">
+                    <h3 className="text-base sm:text-lg font-semibold text-neutral-900">
                       {item.question}
                     </h3>
                     <motion.div
@@ -122,7 +122,7 @@ export default function FAQSection() {
                                 initial={{ opacity: 0, y: 5 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.05 + pIndex * 0.04 }}
-                                className="text-neutral-700 leading-relaxed text-[13px] sm:text-sm"
+                                className="text-neutral-700 leading-relaxed text-sm sm:text-base"
                               >
                                 {paragraph}
                               </motion.p>

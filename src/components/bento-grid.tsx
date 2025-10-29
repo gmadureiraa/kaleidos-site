@@ -530,8 +530,8 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
         >
             <Link
                 href={item.href || "#"}
-                className={`
-                    group relative flex flex-col gap-3 sm:gap-4 h-full rounded-xl p-4 sm:p-5
+                    className={`
+                    group relative flex flex-col gap-4 sm:gap-5 h-full rounded-xl p-6 sm:p-8
                     bg-gradient-to-b from-neutral-50/60 via-neutral-50/40 to-neutral-50/30 
                     dark:from-neutral-900/60 dark:via-neutral-900/40 dark:to-neutral-900/30
                     border border-neutral-200/60 dark:border-neutral-800/60
@@ -559,7 +559,7 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                     <div className="space-y-2 flex-1 flex flex-col">
                         <div className="flex items-center justify-between">
                             <div>
-                                <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors duration-300">
+                                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors duration-300">
                                     {item.title}
                                 </h3>
                                 {item.subtitle && (
@@ -650,7 +650,7 @@ export default function BentoGrid() {
 
     return (
         <section id="servicos" className="relative py-16 sm:py-24 md:py-32 bg-white dark:bg-black overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
                 <h2
                     className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-8 sm:mb-12 text-left sm:text-center font-display tracking-tight"
                 >
@@ -663,9 +663,9 @@ export default function BentoGrid() {
                     viewport={{ once: true }}
                     variants={shouldAnimate() ? staggerContainer : {}}
                     transition={containerAnimation}
-                    className="grid gap-4 sm:gap-6"
+                    className="grid gap-6 sm:gap-8"
                 >
-                    <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+                    <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
                         <motion.div
                             variants={shouldAnimate() ? fadeInUp : {}}
                             className="md:col-span-1"
@@ -679,7 +679,7 @@ export default function BentoGrid() {
                             <BentoCard item={items[1]} />
                         </motion.div>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
                         <motion.div
                             variants={shouldAnimate() ? fadeInUp : {}}
                             className="md:col-span-1"
