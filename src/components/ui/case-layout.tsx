@@ -9,7 +9,6 @@ import { CryptoTweetsCarousel } from "@/components/ui/crypto-tweets-carousel";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { FooterDemo } from "@/components/ui/footer-demo";
 import { useI18n } from "@/i18n/useI18n";
-import { scrollToSection } from "@/hooks/use-smooth-scroll";
 
 interface CaseLayoutProps {
   caseData: {

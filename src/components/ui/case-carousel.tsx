@@ -74,35 +74,6 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
     return () => observer.disconnect();
   }, []);
 
-  // Função para obter estilo do card baseado no nome do cliente
-  const getCardStyle = (clientName: string) => {
-    const name = clientName.toLowerCase();
-    
-    if (name.includes('layla')) {
-      return { bg: 'bg-black', text: 'text-pink-400' };
-    } else if (name.includes('yasmin')) {
-      return { bg: 'bg-green-500', text: 'text-white' };
-    } else if (name.includes('bit das minas') || name.includes('bitdasminas')) {
-      return { bg: 'bg-white', text: 'text-pink-500' };
-    } else if (name.includes('investidor') || name.includes('4.20')) {
-      return { bg: 'bg-pink-500', text: 'text-black' };
-    } else if (name.includes('mercado bitcoin')) {
-      return { bg: 'bg-black', text: 'text-pink-400' };
-    } else if (name.includes('defifest')) {
-      return { bg: 'bg-green-500', text: 'text-white' };
-    } else if (name.includes('jornal cripto')) {
-      return { bg: 'bg-white', text: 'text-pink-500' };
-    } else if (name.includes('crypto.com')) {
-      return { bg: 'bg-pink-500', text: 'text-black' };
-    } else if (name.includes('orlando')) {
-      return { bg: 'bg-black', text: 'text-pink-400' };
-    } else if (name.includes('paradigma')) {
-      return { bg: 'bg-green-500', text: 'text-white' };
-    } else {
-      return { bg: 'bg-black', text: 'text-pink-400' }; // Padrão
-    }
-  };
-
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % media.length);
   };
@@ -154,8 +125,6 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
     isActive?: boolean; 
     onClick?: () => void;
   }) => {
-    const cardStyle = getCardStyle(title);
-    
     return (
       <div 
         className={`cursor-pointer relative ${isActive ? 'scale-100' : 'scale-90 opacity-60'}`}

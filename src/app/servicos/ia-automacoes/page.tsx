@@ -49,23 +49,6 @@ export default function KaleidosIAPage() {
     window.open(whatsappUrl, '_blank');
   };
 
-  const scrollToAutomation = () => {
-    setTimeout(() => {
-      const element = document.getElementById('automation');
-      if (element) {
-        const navbarHeight = 64;
-        const offset = navbarHeight + 24;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth'
-        });
-      }
-    }, 10);
-  };
-
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Hero Section */}
