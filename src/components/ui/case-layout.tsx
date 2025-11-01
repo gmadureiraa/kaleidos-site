@@ -7,6 +7,7 @@ import Link from "next/link";
 import { CaseCarousel } from "@/components/ui/case-carousel";
 import { CryptoTweetsCarousel } from "@/components/ui/crypto-tweets-carousel";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { FooterDemo } from "@/components/ui/footer-demo";
 import { useI18n } from "@/i18n/useI18n";
 import { scrollToSection } from "@/hooks/use-smooth-scroll";
 
@@ -1019,6 +1020,9 @@ export function CaseLayout({ caseData, clientType, visualSection }: CaseLayoutPr
           </div>
         </div>
       </div>
+      
+      {/* Footer */}
+      <FooterDemo />
     </div>
   );
 } 

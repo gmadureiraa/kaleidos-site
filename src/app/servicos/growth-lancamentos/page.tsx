@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 export default function KaleidosGrowthPage() {
   const { locale } = useI18n();
@@ -459,6 +460,9 @@ export default function KaleidosGrowthPage() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <FooterDemo />
     </main>
   );
 } 

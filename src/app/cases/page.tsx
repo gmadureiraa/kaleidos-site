@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAllCases, type CaseData } from "@/lib/case-data";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 // const allTags = Array.from(new Set(getAllCases().flatMap(p => p.tags)));
 
@@ -325,6 +326,9 @@ export default function CasesPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Footer */}
+      <FooterDemo />
     </main>
   );
 } 

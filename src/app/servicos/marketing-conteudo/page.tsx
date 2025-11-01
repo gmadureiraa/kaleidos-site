@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 export default function KaleidosContentPage() {
   const { locale } = useI18n();
@@ -372,6 +373,9 @@ export default function KaleidosContentPage() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <FooterDemo />
     </main>
   );
 } 

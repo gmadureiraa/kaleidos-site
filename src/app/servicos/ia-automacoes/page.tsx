@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 export default function KaleidosIAPage() {
   const { locale } = useI18n();
@@ -67,29 +68,6 @@ export default function KaleidosIAPage() {
 
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background Pattern - Bolinhas Coloridas */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <svg width="100%" height="100%" className="absolute inset-0">
-          <defs>
-            <pattern id="dots-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill="rgba(239, 68, 68, 0.6)" />
-              <circle cx="30" cy="20" r="2" fill="rgba(34, 197, 94, 0.6)" />
-              <circle cx="50" cy="10" r="2" fill="rgba(59, 130, 246, 0.6)" />
-              <circle cx="20" cy="40" r="2" fill="rgba(234, 179, 8, 0.6)" />
-              <circle cx="40" cy="50" r="2" fill="rgba(236, 72, 153, 0.6)" />
-              <circle cx="10" cy="30" r="2" fill="rgba(20, 184, 166, 0.6)" />
-              <circle cx="50" cy="40" r="2" fill="rgba(139, 92, 246, 0.6)" />
-              <circle cx="30" cy="50" r="2" fill="rgba(249, 115, 22, 0.6)" />
-              <circle cx="15" cy="55" r="2" fill="rgba(168, 85, 247, 0.6)" />
-              <circle cx="45" cy="25" r="2" fill="rgba(16, 185, 129, 0.6)" />
-              <circle cx="25" cy="15" r="2" fill="rgba(251, 146, 60, 0.6)" />
-              <circle cx="35" cy="35" r="2" fill="rgba(99, 102, 241, 0.6)" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots-pattern)" />
-        </svg>
-      </div>
-
       {/* Hero Section */}
       <section className="relative py-20 bg-black overflow-hidden z-10">
         <div className="max-w-6xl mx-auto px-4 text-center">
@@ -366,6 +344,9 @@ export default function KaleidosIAPage() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <FooterDemo />
     </main>
   );
 } 

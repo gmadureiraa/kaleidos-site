@@ -5,6 +5,7 @@ import { ArrowLeft, Sparkles, Users, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 export default function SobrePage() {
   const { t, locale } = useI18n();
@@ -369,6 +370,9 @@ export default function SobrePage() {
           </motion.div>
         </motion.section>
       </div>
+      
+      {/* Footer */}
+      <FooterDemo />
     </main>
   );
 } 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import { useState } from "react";
 import { WHATSAPP_NUMBER, SERVICOS } from "@/lib/constants";
+import { FooterDemo } from "@/components/ui/footer-demo";
 
 export default function ContatoPage() {
   const { t, locale } = useI18n();
@@ -215,6 +216,9 @@ export default function ContatoPage() {
       </section>
 
       {/* Seção de formulário e email removida: manter apenas WhatsApp acima */}
+      
+      {/* Footer */}
+      <FooterDemo />
     </div>
   );
 } 
