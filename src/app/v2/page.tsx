@@ -19,7 +19,9 @@ export default function HomeV2() {
       <TrustedBy />
       <BentoGrid />
       <ProcessSection variant="light" />
-      <CasesCarousel />
+      <div id="cases-section">
+        <CasesCarousel />
+      </div>
       <CtaAjuda variant="light" />
       <FAQSection />
       <div id="contact-section">
