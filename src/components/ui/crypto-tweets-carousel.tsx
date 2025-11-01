@@ -8,32 +8,32 @@ import Image from "next/image";
 const tweetPrints = [
   {
     id: 1,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.46.31.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.46.31.png",
     alt: "Print do Tweet Crypto.com 1"
   },
   {
     id: 2,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.46.26.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.46.26.png",
     alt: "Print do Tweet Crypto.com 2"
   },
   {
     id: 3,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.46.20.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.46.20.png",
     alt: "Print do Tweet Crypto.com 3"
   },
   {
     id: 4,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.45.29.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.45.29.png",
     alt: "Print do Tweet Crypto.com 4"
   },
   {
     id: 5,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.37.28.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.37.28.png",
     alt: "Print do Tweet Crypto.com 5"
   },
   {
     id: 6,
-    src: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.37.16.png",
+    src: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.37.16.png",
     alt: "Print do Tweet Crypto.com 6"
   }
 ];

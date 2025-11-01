@@ -13,7 +13,7 @@ export function generateSEOMetadata({
   title,
   description,
   keywords,
-  ogImage = "/Imagens/Capa.png",
+  ogImage = "/Kaleidos/imagens/Capa.png",
   url,
   type = "website",
 }: SEOProps): Metadata {

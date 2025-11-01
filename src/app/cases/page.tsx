@@ -27,7 +27,14 @@ export default function CasesPage() {
     "jornal-cripto",
     "orlando",
     "yasmin",
-    "defifest"
+    "defifest",
+    // Cases "em breve"
+    "ledger",
+    "parfin",
+    "kast",
+    "neobankless",
+    "castacrypto",
+    "vault"
   ];
 
   const allCases = getAllCases();
@@ -51,22 +58,27 @@ export default function CasesPage() {
 
   const isVideo = (url: string) => url.includes('.mp4') || url.includes('.mov') || url.includes('.avi');
 
-  // Função para obter a imagem de capa de um case
-  const getCaseCover = (caseId: string): string | null => {
-    const coverMap: Record<string, string> = {
-      // Adicione cases conforme você criar as imagens
-      // "defifest": "/Capas/Defifest.png",
-      // "bit-das-minas": "/Capas/BitDasMinas.png",
-      // "layla-foz": "/Capas/LaylaFoz.png",
-      // etc...
-    };
-    
-    return coverMap[caseId] || null;
+  // Cases que estão prontos (têm página completa)
+  const readyCases = [
+    "bit-das-minas",
+    "layla-foz",
+    "defiverso",
+    "crypto-com",
+    "jornal-cripto",
+    "mercado-bitcoin",
+    "orlando",
+    "investidor-4-20",
+    "paradigma-education",
+  ];
+
+  // Função para verificar se o case está pronto
+  const isCaseReady = (caseId: string): boolean => {
+    return readyCases.includes(caseId);
   };
 
-  // Função para obter estilo do card baseado no nome do cliente
-  const getCardStyle = (clientName: string) => {
-    const name = clientName.toLowerCase();
+  // Função para obter estilo do card baseado no ID do case
+  const getCardStyle = (caseId: string) => {
+    const name = caseId.toLowerCase();
     
     // Paleta Kaleidos: Rosa, Verde, Preto, Branco
     const styles = [
@@ -80,19 +92,25 @@ export default function CasesPage() {
       { bg: 'bg-gradient-to-br from-white to-gray-50', text: 'text-pink-500', border: 'border-pink-200' }
     ];
     
-    // Mapeamento específico para cada case
+    // Mapeamento específico para cada case (usando IDs exatos do case-data.ts)
     const caseStyles: Record<string, typeof styles[0]> = {
       'defifest': styles[1], // Verde
       'bit-das-minas': styles[0], // Rosa
       'investidor-4-20': styles[2], // Preto
       'jornal-cripto': styles[3], // Branco
       'mercado-bitcoin': styles[4], // Gradiente rosa
-      'crypto.com': styles[5], // Gradiente verde
+      'crypto-com': styles[5], // Gradiente verde (corrigido: era crypto.com)
       'orlando': styles[6], // Gradiente preto
       'paradigma-education': styles[7], // Gradiente branco
       'layla-foz': styles[0], // Rosa
       'yasmin': styles[1], // Verde
       'defiverso': styles[2], // Preto
+      'ledger': styles[2], // Preto
+      'parfin': styles[5], // Gradiente verde
+      'kast': styles[1], // Verde
+      'neobankless': styles[4], // Gradiente rosa
+      'castacrypto': styles[0], // Rosa
+      'vault': styles[2], // Preto
     };
     
     // Retorna o estilo específico do case ou um padrão baseado no nome
@@ -161,64 +179,88 @@ export default function CasesPage() {
               visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
             }}
           >
-            <Link
-              href={withLang(`/cases/${proj.id}`)}
-              className="group block"
-            >
-              <motion.div
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
-                whileHover={{ y: -5 }}
-              >
-                <div className="relative h-32 overflow-hidden flex items-center justify-center">
-                  {getCaseCover(proj.id) ? (
-                    <>
-                      <Image
-                        src={getCaseCover(proj.id)!}
-                        alt={`Capa ${proj.nome}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-                    </>
-                  ) : (
-                    <div className={`w-full h-full ${getCardStyle(proj.nome).bg} ${getCardStyle(proj.nome).border} flex items-center justify-center`}>
-                      <span className={`text-4xl font-display font-bold ${getCardStyle(proj.nome).text} text-center px-4`}>
+            <div className="group block">
+              {isCaseReady(proj.id) ? (
+                <Link href={withLang(`/cases/${proj.id}`)}>
+                  <motion.div
+                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 cursor-pointer"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className={`relative h-32 overflow-hidden flex items-center justify-center ${getCardStyle(proj.id).bg} ${getCardStyle(proj.id).border}`}>
+                      <span className={`text-4xl font-display font-bold ${getCardStyle(proj.id).text} text-center px-4`}>
                         {proj.nome}
                       </span>
                     </div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-[#7CFF6B] transition-colors">
-                    {locale==='en' && (proj as unknown as { nome_en?: string }).nome_en ? (proj as unknown as { nome_en?: string }).nome_en : proj.nome}
-                  </h3>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {proj.tags.slice(0, 3).map(tagItem => (
-                      <span key={tagItem} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
-                        {tagItem}
-                      </span>
-                    ))}
-                    {proj.tags.length > 3 && (
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
-                        +{proj.tags.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-gray-700 mb-3 font-medium">
-                    {locale==='en' && (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en ? (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en : proj.fraseImpactante}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">
-                      {proj.media.length} {proj.media.length === 1 ? t('casesList','item') : t('casesList','items')}
+                    <div className="p-4">
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-[#7CFF6B] transition-colors">
+                        {locale==='en' && (proj as unknown as { nome_en?: string }).nome_en ? (proj as unknown as { nome_en?: string }).nome_en : proj.nome}
+                      </h3>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {proj.tags.slice(0, 3).map(tagItem => (
+                          <span key={tagItem} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                            {tagItem}
+                          </span>
+                        ))}
+                        {proj.tags.length > 3 && (
+                          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                            +{proj.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-700 mb-3 font-medium">
+                        {locale==='en' && (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en ? (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en : proj.fraseImpactante}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-gray-500">
+                          {proj.media.length} {proj.media.length === 1 ? t('casesList','item') : t('casesList','items')}
+                        </span>
+                        <span className="text-[#7CFF6B] text-sm font-medium">
+                          {t('casesList','seeCase')}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              ) : (
+                <motion.div
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg opacity-75"
+                >
+                  <div className={`relative h-32 overflow-hidden flex items-center justify-center ${getCardStyle(proj.id).bg} ${getCardStyle(proj.id).border} opacity-50`}>
+                    <span className={`text-4xl font-display font-bold ${getCardStyle(proj.id).text} text-center px-4`}>
+                      {proj.nome}
                     </span>
-                    <span className="text-[#7CFF6B] text-sm font-medium">
-                      {t('casesList','seeCase')}
-                    </span>
                   </div>
-                </div>
-              </motion.div>
-            </Link>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold mb-2 text-gray-400">
+                      {locale==='en' && (proj as unknown as { nome_en?: string }).nome_en ? (proj as unknown as { nome_en?: string }).nome_en : proj.nome}
+                    </h3>
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {proj.tags.slice(0, 3).map(tagItem => (
+                        <span key={tagItem} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full opacity-50">
+                          {tagItem}
+                        </span>
+                      ))}
+                      {proj.tags.length > 3 && (
+                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full opacity-50">
+                          +{proj.tags.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-500 mb-3 font-medium">
+                      {locale==='en' && (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en ? (proj as unknown as { fraseImpactante_en?: string }).fraseImpactante_en : proj.fraseImpactante}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-400">
+                        {proj.media.length} {proj.media.length === 1 ? t('casesList','item') : t('casesList','items')}
+                      </span>
+                      <span className="text-gray-500 text-sm font-medium italic">
+                        Em breve
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
           </motion.div>
         ))}
       </motion.div>

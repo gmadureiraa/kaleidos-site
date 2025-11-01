@@ -170,7 +170,7 @@ export default function KaleidosContentPage() {
               <div className="relative">
                 <div className="rounded-2xl h-auto overflow-hidden">
                   <Image 
-                    src="/Elementos/KaleidosContent.png" 
+                    src="/Kaleidos/elementos/KaleidosContent.png" 
                     alt="Kaleidos Content - Conteúdo em Ação" 
                     width={1600}
                     height={900}
@@ -188,7 +188,7 @@ export default function KaleidosContentPage() {
               <div className="relative order-2 lg:order-1">
                 <div className="rounded-2xl h-auto overflow-hidden">
                   <Image 
-                    src="/Elementos/KaleidosDesign.png" 
+                    src="/Kaleidos/elementos/KaleidosDesign.png" 
                     alt="Kaleidos Content - Design & Edição" 
                     width={1600}
                     height={900}
@@ -269,32 +269,32 @@ export default function KaleidosContentPage() {
             <CarouselContent className="-ml-1 md:-ml-2">
               {[
                 // Bit das Minas - Vídeos
-                "/Conteudo_clientes/Bit das minas/Reels-1-Gi-2.mp4",
-                "/Conteudo_clientes/Bit das minas/Reels-3-Gi.mp4",
+                "/Cases/bit-das-minas/conteudo/Reels-1-Gi-2.mp4",
+                "/Cases/bit-das-minas/conteudo/Reels-3-Gi.mp4",
                 
                 // Layla Foz - Vídeos
-                "/Conteudo_clientes/Layla Foz/Reels-1-Layla-1.mp4",
-                "/Conteudo_clientes/Layla Foz/Reels-2-Layla-1.mp4",
+                "/Cases/layla-foz/conteudo/Reels-1-Layla-1.mp4",
+                "/Cases/layla-foz/conteudo/Reels-2-Layla-1.mp4",
                 
                 // Investidor 4.20 - Vídeos
-                "/Conteudo_clientes/Investidor 4.20/Reels-1-Lucas-1.mp4",
-                "/Conteudo_clientes/Investidor 4.20/Reels-3-Lucas.mp4",
+                "/Cases/investidor-4-20/conteudo/Reels-1-Lucas-1.mp4",
+                "/Cases/investidor-4-20/conteudo/Reels-3-Lucas.mp4",
                 
                 // Yasmin - Vídeos
-                "/Conteudo_clientes/Yasmin/Reels-1-Yasmin-1.mp4",
-                "/Conteudo_clientes/Yasmin/Reels-3-Yasmin.mp4",
+                "/Cases/yasmin/conteudo/Reels-1-Yasmin-1.mp4",
+                "/Cases/yasmin/conteudo/Reels-3-Yasmin.mp4",
                 
                 // Paradigma Education - Vídeos
-                "/Conteudo_clientes/Paradigma/PARADIGMAv2.mp4",
-                "/Conteudo_clientes/Paradigma/20250620_PARADIGMA_01M06S_V3.mp4",
+                "/Cases/paradigma/conteudo/PARADIGMAv2.mp4",
+                "/Cases/paradigma/conteudo/20250620_PARADIGMA_01M06S_V3.mp4",
                 
                 // Defifest - Imagens
-                "/Conteudo_clientes/Defifest/1.png",
-                "/Conteudo_clientes/Defifest/10.png",
+                "/Cases/defifest/conteudo/1.png",
+                "/Cases/defifest/conteudo/10.png",
                 
                 // Jornal Cripto - Imagens
-                "/Conteudo_clientes/Jornal cripto/1-2.png",
-                "/Conteudo_clientes/Jornal cripto/2-1.png",
+                "/Cases/jornal-cripto/conteudo/1-2.png",
+                "/Cases/jornal-cripto/conteudo/2-1.png",
               ].map((src, idx) => {
                 const isImage = src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.jpeg');
                 
@@ -368,61 +368,6 @@ export default function KaleidosContentPage() {
             >
                {locale==='en' ? 'I want content like this' : 'Quero Conteúdo Assim'}
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Final Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display text-black">
-              {locale==='en' ? 'Ready to create ' : 'Pronto para Criar '}<span className="text-black">{locale==='en' ? 'content that goes viral?' : 'Conteúdo que Viraliza?'}</span>
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {(locale==='en' ? [
-                'Content that truly engages',
-                'Copy that converts',
-                'Videos that go viral',
-                'Audience that grows organically'
-              ] : [
-                "Conteúdo que engaja de verdade",
-                "Copy que converte",
-                "Vídeos que viralizam",
-                "Audiência que cresce organicamente"
-              ]).map((benefit, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-center space-x-3 p-4 bg-white rounded-lg border border-gray-200 hover:border-gray-600 transition-all duration-300"
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-gray-700 font-medium">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-            
-            <Button 
-              onClick={handleWhatsApp}
-              className="bg-black text-white px-12 py-6 text-xl font-bold rounded-2xl hover:scale-105 transition-all duration-300 group overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                {locale==='en' ? 'I want content that works' : 'Quero Conteúdo que Funciona'}
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
-              </span>
             </Button>
           </motion.div>
         </div>

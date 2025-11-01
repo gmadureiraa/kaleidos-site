@@ -13,7 +13,7 @@ import "./globals.css";
 const atelier = localFont({
   src: [
     {
-      path: '../../public/fonts/Atelier/OpenType-TT/Atelier.ttf',
+      path: '../../public/Kaleidos/fonts/Atelier/OpenType-TT/Atelier.ttf',
       weight: '400',
       style: 'normal',
     },
@@ -25,12 +25,12 @@ const atelier = localFont({
 const inter = localFont({
   src: [
     {
-      path: '../../public/fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
+      path: '../../public/Kaleidos/fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
       weight: '100 900',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf',
+      path: '../../public/Kaleidos/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf',
       weight: '100 900',
       style: 'italic',
     },
@@ -42,7 +42,7 @@ const inter = localFont({
 const gridlite = localFont({
   src: [
     {
-      path: '../../public/fonts/Gridlite/Gridlite.otf',
+      path: '../../public/Kaleidos/fonts/Gridlite/Gridlite.otf',
       weight: '400',
       style: 'normal',
     },
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     siteName: process.env.NEXT_PUBLIC_SITE_NAME || 'Kaleidos Digital',
     images: [
       {
-        url: '/Imagens/Capa.png',
+        url: '/Kaleidos/imagens/Capa.png',
         width: 1200,
         height: 630,
         alt: 'Kaleidos Digital - Marketing e Conteúdo',
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kaleidos Digital - Marketing e Conteúdo",
     description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || "Especialistas em crescimento de marcas através de conteúdo criativo, automações inteligentes e lançamentos estratégicos.",
-    images: ['/Imagens/Capa.png'],
+    images: ['/Kaleidos/imagens/Capa.png'],
     creator: '@kaleidosdigital',
   },
   robots: {

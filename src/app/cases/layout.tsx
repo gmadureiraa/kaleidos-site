@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://kaleidos.com.br/cases',
     images: [
       {
-        url: '/Imagens/Capa.png',
+        url: '/Kaleidos/imagens/Capa.png',
         width: 1200,
         height: 630,
         alt: 'Cases de Sucesso - Kaleidos Digital',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Cases de Sucesso | Kaleidos Digital",
     description: "Conheça nossos cases de sucesso com Crypto.com, Mercado Bitcoin, Jornal Cripto, Investidor 4.20 e outros clientes.",
-    images: ['/Imagens/Capa.png'],
+    images: ['/Kaleidos/imagens/Capa.png'],
   },
 };
 

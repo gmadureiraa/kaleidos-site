@@ -32,7 +32,7 @@ export const dictionaries: Record<Locale, Record<string, Dictionary>> = {
       step1Text: "Começamos com uma análise detalhada sua e dos seus concorrentes para trazer a melhor estratégia.",
       step2Title: "Criação",
       step2Text: "Criamos estratégias personalizadas para sua empresa, priorizando qualidade e resultados.",
-      step3Title: "Melhoria",
+      step3Title: "Melhorias",
       step3Text: "Após a implantação, fazemos análise de dados e aprimoramos as estratégias para garantir os melhores resultados.",
     },
     faq: {

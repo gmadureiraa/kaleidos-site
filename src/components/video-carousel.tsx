@@ -13,7 +13,7 @@ const carouselItems = [
   
   // Bit das Minas
   {
-    src: "/Conteudo_clientes/Bit das minas/Reels-1-Gi-2.mp4",
+    src: "/Cases/bit-das-minas/conteudo/Reels-1-Gi-2.mp4",
     type: "video",
     href: "/cases/bit-das-minas",
     title: "Bit das Minas",
@@ -22,7 +22,7 @@ const carouselItems = [
   
   // Layla Foz
   {
-    src: "/Conteudo_clientes/Layla Foz/Reels-1-Layla-1.mp4",
+    src: "/Cases/layla-foz/conteudo/Reels-1-Layla-1.mp4",
     type: "video",
     href: "/cases/layla-foz",
     title: "Layla Foz",
@@ -31,7 +31,7 @@ const carouselItems = [
   
   // Investidor 4.20
   {
-    src: "/Conteudo_clientes/Investidor 4.20/Reels-1-Lucas-1.mp4",
+    src: "/Cases/investidor-4-20/conteudo/Reels-1-Lucas-1.mp4",
     type: "video",
     href: "/cases/investidor-4-20",
     title: "Investidor 4.20",
@@ -40,7 +40,7 @@ const carouselItems = [
   
   // Yasmin
   {
-    src: "/Conteudo_clientes/Yasmin/Reels-1-Yasmin-1.mp4",
+    src: "/Cases/yasmin/conteudo/Reels-1-Yasmin-1.mp4",
     type: "video",
     href: "/cases/yasmin",
     title: "Yasmin",
@@ -49,7 +49,7 @@ const carouselItems = [
   
   // Paradigma Education
   {
-    src: "/Conteudo_clientes/Paradigma/PARADIGMAv2.mp4",
+    src: "/Cases/paradigma/conteudo/PARADIGMAv2.mp4",
     type: "video",
     href: "/cases/paradigma-education",
     title: "Paradigma Education",
@@ -58,7 +58,7 @@ const carouselItems = [
   
   // Defifest (imagem)
   {
-    src: "/Conteudo_clientes/Defifest/1.png",
+    src: "/Cases/defifest/conteudo/1.png",
     type: "image",
     href: "/cases/defifest",
     title: "Defifest",
@@ -67,7 +67,7 @@ const carouselItems = [
   
   // Bit das Minas (segundo exemplo)
   {
-    src: "/Conteudo_clientes/Bit das minas/Reels-3-Gi.mp4",
+    src: "/Cases/bit-das-minas/conteudo/Reels-3-Gi.mp4",
     type: "video",
     href: "/cases/bit-das-minas",
     title: "Bit das Minas",
@@ -76,7 +76,7 @@ const carouselItems = [
   
   // Jornal Cripto (imagem)
   {
-    src: "/Conteudo_clientes/Jornal cripto/1-2.png",
+    src: "/Cases/jornal-cripto/conteudo/1-2.png",
     type: "image",
     href: "/cases/jornal-cripto",
     title: "Jornal Cripto",
@@ -85,7 +85,7 @@ const carouselItems = [
   
   // Layla Foz (segundo exemplo)
   {
-    src: "/Conteudo_clientes/Layla Foz/Reels-2-Layla-1.mp4",
+    src: "/Cases/layla-foz/conteudo/Reels-2-Layla-1.mp4",
     type: "video",
     href: "/cases/layla-foz",
     title: "Layla Foz",
@@ -94,7 +94,7 @@ const carouselItems = [
   
   // Mercado Bitcoin (imagem)
   {
-    src: "/Conteudo_clientes/Mercado Bitcoin/Instagram.png",
+    src: "/Cases/mercado-bitcoin/conteudo/Instagram.png",
     type: "image",
     href: "/cases/mercado-bitcoin",
     title: "Mercado Bitcoin",
@@ -103,7 +103,7 @@ const carouselItems = [
   
   // Investidor 4.20 (segundo exemplo)
   {
-    src: "/Conteudo_clientes/Investidor 4.20/Reels-3-Lucas.mp4",
+    src: "/Cases/investidor-4-20/conteudo/Reels-3-Lucas.mp4",
     type: "video",
     href: "/cases/investidor-4-20",
     title: "Investidor 4.20",
@@ -112,7 +112,7 @@ const carouselItems = [
   
   // Defifest (segunda imagem)
   {
-    src: "/Conteudo_clientes/Defifest/10.png",
+    src: "/Cases/defifest/conteudo/10.png",
     type: "image",
     href: "/cases/defifest",
     title: "Defifest",
@@ -121,7 +121,7 @@ const carouselItems = [
   
   // Yasmin (segundo exemplo)
   {
-    src: "/Conteudo_clientes/Yasmin/Reels-3-Yasmin.mp4",
+    src: "/Cases/yasmin/conteudo/Reels-3-Yasmin.mp4",
     type: "video",
     href: "/cases/yasmin",
     title: "Yasmin",
@@ -130,7 +130,7 @@ const carouselItems = [
   
   // Jornal Cripto (segunda imagem)
   {
-    src: "/Conteudo_clientes/Jornal cripto/2-1.png",
+    src: "/Cases/jornal-cripto/conteudo/2-1.png",
     type: "image",
     href: "/cases/jornal-cripto",
     title: "Jornal Cripto",
@@ -139,7 +139,7 @@ const carouselItems = [
   
   // Paradigma Education (segundo exemplo)
   {
-    src: "/Conteudo_clientes/Paradigma/20250620_PARADIGMA_01M06S_V3.mp4",
+    src: "/Cases/paradigma/conteudo/20250620_PARADIGMA_01M06S_V3.mp4",
     type: "video",
     href: "/cases/paradigma-education",
     title: "Paradigma Education",
@@ -148,7 +148,7 @@ const carouselItems = [
   
   // Mercado Bitcoin (segunda imagem)
   {
-    src: "/Conteudo_clientes/Mercado Bitcoin/Instagram2.png",
+    src: "/Cases/mercado-bitcoin/conteudo/Instagram2.png",
     type: "image",
     href: "/cases/mercado-bitcoin",
     title: "Mercado Bitcoin",
@@ -253,7 +253,7 @@ export default function VideoCarousel() {
                         }}
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
-                          img.src = '/Imagens/placeholder.png';
+                          img.src = '/Kaleidos/imagens/placeholder.png';
                         }}
                       />
                     ) : (

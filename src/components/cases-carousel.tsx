@@ -20,7 +20,7 @@ const casesCarouselData = [
     description: "Edição de vídeo, copywrite e roteiro para lançamentos virais.",
     metric: "+200% Faturamento",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Bit das minas/Reels-1-Gi-2.mp4",
+    coverImage: "/Cases/bit-das-minas/conteudo/Reels-1-Gi-2.mp4",
     href: "/cases/bit-das-minas"
   },
   {
@@ -29,7 +29,7 @@ const casesCarouselData = [
     description: "Edição de vídeo e criação de newsletters para crescimento orgânico.",
     metric: "+20M Views",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Layla Foz/Reels-1-Layla-1.mp4",
+    coverImage: "/Cases/layla-foz/conteudo/Reels-1-Layla-1.mp4",
     href: "/cases/layla-foz"
   },
   {
@@ -38,7 +38,7 @@ const casesCarouselData = [
     description: "Desenvolvimento comercial completo e estratégias de lançamento.",
     metric: "5x Faturamento",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Investidor 4.20/Reels-1-Lucas-1.mp4",
+    coverImage: "/Cases/investidor-4-20/conteudo/Reels-1-Lucas-1.mp4",
     href: "/cases/investidor-4-20"
   },
   {
@@ -47,7 +47,7 @@ const casesCarouselData = [
     description: "Edição de reels virais com técnicas de After Effects para conteúdo crypto.",
     metric: "Reels Virais",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Yasmin/Reels-1-Yasmin-1.mp4",
+    coverImage: "/Cases/yasmin/conteudo/Reels-1-Yasmin-1.mp4",
     href: "/cases/yasmin"
   },
   {
@@ -56,26 +56,17 @@ const casesCarouselData = [
     description: "Edição de vídeo com motion graphics e animações para conteúdo educativo.",
     metric: "Motion Design",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Paradigma/PARADIGMAv2.mp4",
+    coverImage: "/Cases/paradigma/conteudo/PARADIGMAv2.mp4",
     href: "/cases/paradigma-education"
   },
   {
-    id: "defifest",
-    title: "Defifest",
-    description: "Design completo do evento com banners, motions e identidade visual.",
-    metric: "+600 Participantes",
+    id: "defiverso",
+    title: "Defiverso",
+    description: "Criação de conteúdo do zero para Instagram, Twitter e grupo de WhatsApp. Desenvolvimento de toda estratégia de social media.",
+    metric: "8K Seguidores",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Defifest/1.png",
-    href: "/cases/defifest"
-  },
-  {
-    id: "jornal-cripto",
-    title: "Jornal Cripto",
-    description: "Criação de marca, identidade visual e automações de conteúdo.",
-    metric: "6 Posts/Dia",
-    metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Jornal cripto/1-2.png",
-    href: "/cases/jornal-cripto"
+    coverImage: "/Cases/defiverso/conteudo/Captura de Tela 2025-07-27 às 00.02.27.png",
+    href: "/cases/defiverso"
   },
   {
     id: "mercado-bitcoin",
@@ -83,7 +74,7 @@ const casesCarouselData = [
     description: "Criação de conteúdo para redes sociais durante 18 meses.",
     metric: "+80K Seguidores",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Mercado Bitcoin/Instagram.png",
+    coverImage: "/Cases/mercado-bitcoin/conteudo/Instagram.png",
     href: "/cases/mercado-bitcoin"
   },
   {
@@ -92,7 +83,7 @@ const casesCarouselData = [
     description: "Criação de conteúdo para Instagram e Twitter com estratégia focada.",
     metric: "+100% Curtidas",
     metricColor: "bg-pink-500",
-    coverImage: "/Conteudo_clientes/Crypto.com/Captura de Tela 2025-07-26 às 22.37.16.png",
+    coverImage: "/Cases/crypto-com/conteudo/Captura de Tela 2025-07-26 às 22.37.16.png",
     href: "/cases/crypto-com"
   }
 ];
@@ -186,7 +177,7 @@ function CasesCarouselContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: idx * 0.1 }}
                   viewport={{ once: true, amount: 0.7 }}
-                  className="relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden bg-black border border-gray-800 group-hover:border-pink-500/50 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-pink-500/20"
+                  className="relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden bg-black border border-gray-800/50 group-hover:border-green-400/30 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-400/10 group-hover:scale-[1.02]"
                 >
                   {/* Cover Image/Video */}
                   <div className="absolute inset-0">
@@ -209,27 +200,30 @@ function CasesCarouselContent() {
                     )}
                   </div>
                   
-                  {/* Content - Bottom Section with Rectangle Shadow (35% of card height) */}
+                  {/* Content - Bottom Section with Rectangle Shadow */}
                   <div className="absolute bottom-0 left-0 right-0 h-[40%] p-0">
-                    {/* Rectangle with shadow for title, description and metric - full width */}
-                    <div className="bg-black/80 backdrop-blur-sm rounded-t-2xl p-6 sm:p-8 shadow-2xl h-full flex flex-col justify-center w-full">
-                      <h3 className="text-white font-bold text-xl sm:text-2xl mb-1.5 sm:mb-2 font-display text-left">
-                        {caseItem.title}
-                      </h3>
-                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-2.5 sm:mb-3 text-left">
-                        {caseItem.description}
-                      </p>
-                      
-                      {/* Metric inside the rectangle */}
-                      <div className={`inline-flex items-center px-4 py-2 rounded-full ${caseItem.metricColor} text-white font-semibold text-sm sm:text-base shadow-lg w-fit`}>
-                        {caseItem.metric}
+                    {/* Gradient overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/95 to-transparent rounded-t-2xl"></div>
+                    
+                    {/* Rectangle with shadow for title, description and metric */}
+                    <div className="relative bg-black/70 backdrop-blur-md rounded-t-2xl p-5 sm:p-6 shadow-2xl h-full flex flex-col justify-end w-full">
+                      <div className="space-y-2 sm:space-y-2.5">
+                        <h3 className="text-white font-bold text-xl sm:text-2xl font-display text-left leading-tight">
+                          {caseItem.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm sm:text-base leading-relaxed text-left line-clamp-2">
+                          {caseItem.description}
+                        </p>
+                        
+                        {/* Metric badge - mais elegante e sutil */}
+                        <div className="pt-1">
+                          <span className="inline-flex items-center px-3 py-1 rounded-md bg-green-400/10 text-green-400/90 font-medium text-xs sm:text-sm border border-green-400/30 backdrop-blur-sm transition-all group-hover:bg-green-400/15 group-hover:border-green-400/40">
+                            {caseItem.metric}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-pink-500 rounded-full opacity-60" />
-                  <div className="absolute bottom-4 right-4 w-1 h-1 bg-pink-400 rounded-full opacity-40" />
                 </motion.div>
               </Link>
             </SwiperSlide>

@@ -4,7 +4,7 @@ export function StructuredData() {
     "@type": "Organization",
     "name": "Kaleidos Digital",
     "url": "https://kaleidos.com.br",
-    "logo": "https://kaleidos.com.br/Imagens/Capa.png",
+    "logo": "https://kaleidos.com.br/Kaleidos/imagens/Capa.png",
     "description": "Especialistas em crescimento de marcas através de conteúdo criativo, automações inteligentes e lançamentos estratégicos",
     "foundingDate": "2024",
     "address": {

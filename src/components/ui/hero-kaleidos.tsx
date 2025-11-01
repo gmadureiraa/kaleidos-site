@@ -36,7 +36,7 @@ export default function HeroKaleidos() {
           {/* Logo no mobile (acima) */}
           <div className="sm:hidden">
             <Image
-              src="/logo/Logos-10.svg"
+              src="/Kaleidos/logo/Logos-10.svg"
               alt="Kaleidos Logo"
               width={120}
               height={40}
@@ -47,7 +47,7 @@ export default function HeroKaleidos() {
           {/* Logo no desktop (ao lado) */}
           <div className="hidden sm:block">
             <Image
-              src="/logo/Logos-10.svg"
+              src="/Kaleidos/logo/Logos-10.svg"
               alt="Kaleidos Logo"
               width={120}
               height={40}

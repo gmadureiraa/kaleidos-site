@@ -49,14 +49,49 @@ export default function KaleidosIAPage() {
   };
 
   const scrollToAutomation = () => {
-    const element = document.getElementById('automation');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const element = document.getElementById('automation');
+      if (element) {
+        const navbarHeight = 64;
+        const offset = navbarHeight + 24;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    }, 10);
   };
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Background Pattern - Bolinhas Coloridas */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <svg width="100%" height="100%" className="absolute inset-0">
+          <defs>
+            <pattern id="dots-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="2" fill="rgba(239, 68, 68, 0.6)" />
+              <circle cx="30" cy="20" r="2" fill="rgba(34, 197, 94, 0.6)" />
+              <circle cx="50" cy="10" r="2" fill="rgba(59, 130, 246, 0.6)" />
+              <circle cx="20" cy="40" r="2" fill="rgba(234, 179, 8, 0.6)" />
+              <circle cx="40" cy="50" r="2" fill="rgba(236, 72, 153, 0.6)" />
+              <circle cx="10" cy="30" r="2" fill="rgba(20, 184, 166, 0.6)" />
+              <circle cx="50" cy="40" r="2" fill="rgba(139, 92, 246, 0.6)" />
+              <circle cx="30" cy="50" r="2" fill="rgba(249, 115, 22, 0.6)" />
+              <circle cx="15" cy="55" r="2" fill="rgba(168, 85, 247, 0.6)" />
+              <circle cx="45" cy="25" r="2" fill="rgba(16, 185, 129, 0.6)" />
+              <circle cx="25" cy="15" r="2" fill="rgba(251, 146, 60, 0.6)" />
+              <circle cx="35" cy="35" r="2" fill="rgba(99, 102, 241, 0.6)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots-pattern)" />
+        </svg>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative py-20 bg-black overflow-hidden">
+      <section className="relative py-20 bg-black overflow-hidden z-10">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,97 +100,36 @@ export default function KaleidosIAPage() {
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-display">Kaleidos <span className="text-white">AI</span></h1>
             
-            <div className="mt-6">
+            <div className="mt-6 mb-8">
               <AIStateLoading />
             </div>
 
-
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button 
-                onClick={scrollToAutomation}
-                className="bg-white text-black px-8 py-4 text-lg font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
-              >
-                {locale==='en' ? 'See Automations' : 'Ver Automações'}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              
-              <Button 
-                onClick={handleWhatsApp}
-                variant="outline"
-                className="border-white bg-transparent text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
-              >
-                {locale==='en' ? 'Contact Us' : 'Falar Conosco'}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              {locale==='en' ? (
+                <>Our <strong>advanced AI technology</strong> automates complex processes and optimizes results. We combine <strong>machine learning</strong> with <strong>human creativity</strong> to build solutions that truly work in the real world.</>
+              ) : (
+                <>Nossa <strong>tecnologia de IA avançada</strong> automatiza processos complexos e otimiza resultados. Combinamos <strong>machine learning</strong> com <strong>criatividade humana</strong> para criar soluções que realmente funcionam no mundo real.</>
+              )}
+            </p>
           </motion.div>
 
           
         </div>
       </section>
 
-      {/* Visual Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
-                  {locale==='en' ? 'AI that ' : 'IA que '}<span className="text-white">{locale==='en' ? 'Transforms' : 'Transforma'}</span>
-                </h2>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  {locale==='en' ? (
-                    <>Our <strong>advanced AI technology</strong> automates complex processes and optimizes results. We combine <strong>machine learning</strong> with <strong>human creativity</strong> to build solutions that truly work in the real world.</>
-                  ) : (
-                    <>Nossa <strong>tecnologia de IA avançada</strong> automatiza processos complexos e otimiza resultados. Combinamos <strong>machine learning</strong> com <strong>criatividade humana</strong> para criar soluções que realmente funcionam no mundo real.</>
-                  )}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
-                  <h4 className="text-lg font-bold text-white mb-3">{locale==='en' ? 'Smart Automation' : 'Automação Inteligente'}</h4>
-                  <p className="text-gray-400 text-sm">{locale==='en' ? 'Processes that adapt and improve automatically.' : 'Processos que se adaptam e melhoram automaticamente.'}</p>
-                </div>
-                <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
-                  <h4 className="text-lg font-bold text-white mb-3">{locale==='en' ? 'Continuous Optimization' : 'Otimização Contínua'}</h4>
-                  <p className="text-gray-400 text-sm">{locale==='en' ? 'Results that improve with time and usage.' : 'Resultados que melhoram com o tempo e uso.'}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Image */}
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden">
-                <img 
-                  src="/Elementos/KaleidosAI.png" 
-                  alt="Kaleidos AI"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Problems Section */}
-      <section className="py-20 bg-black">
+      <section id="automation" className="py-20 bg-black relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 font-display text-white">
               {locale==='en' ? 'Problems we ' : 'Problemas que '}<span className="text-white">{locale==='en' ? 'Solve' : 'Resolvemos'}</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              {locale==='en' ? 'We identify and automate the processes that consume your time the most' : 'Identificamos e automatizamos os processos que mais consomem seu tempo'}
-            </p>
           </motion.div>
 
           <Carousel
@@ -320,8 +294,8 @@ export default function KaleidosIAPage() {
 
 
       {/* CTA Final Section */}
-      <section className="py-20 bg-black relative overflow-hidden">
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <section className="py-20 bg-black relative overflow-hidden z-10">
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -335,8 +309,7 @@ export default function KaleidosIAPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              {locale==='en' ? 'Ready to ' : 'Pronto para '}
-              <span className="text-white">{locale==='en' ? 'Unleash your Creativity?' : 'Liberar sua Criatividade?'}</span>
+              {locale==='en' ? 'Ready to Automate Your Processes?' : 'Pronto para Automatizar seus Processos?'}
             </motion.h2>
             
             <motion.div 
@@ -349,12 +322,12 @@ export default function KaleidosIAPage() {
               {(locale==='en' ? [
                 '80% less time on repetitive tasks',
                 'Automations that run 24/7',
-                'Full focus on your creativity',
+                'AI that works for you',
                 'Measurable results in 30 days'
               ] : [
                 "80% menos tempo em tarefas repetitivas",
                 "Automações que funcionam 24/7",
-                "Foco total na sua criatividade",
+                "IA que trabalha para você",
                 "Resultados mensuráveis em 30 dias"
               ]).map((benefit, index) => (
                 <motion.div 

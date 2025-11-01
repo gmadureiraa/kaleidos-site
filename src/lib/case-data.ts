@@ -41,33 +41,33 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Design", "Motion", "Edição de vídeo", "Copywrite"],
     servicos_en: ["Design", "Motion", "Video editing", "Copywriting"],
     media: [
-      { src: "/Conteudo_clientes/Defifest/1.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/4.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/6.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/7.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/8.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/9.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/10.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/13.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/16.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/17.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/22.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/23.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/24.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/30.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/31.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/68.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/71.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/76.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/77.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/78.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%201.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%202.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%203.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%204.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%205.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%206.png", type: "image" },
-      { src: "/Conteudo_clientes/Defifest/Palestra%207.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/1.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/4.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/6.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/7.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/8.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/9.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/10.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/13.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/16.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/17.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/22.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/23.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/24.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/30.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/31.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/68.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/71.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/76.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/77.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/78.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%201.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%202.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%203.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%204.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%205.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%206.png", type: "image" },
+      { src: "/Cases/defifest/conteudo/Palestra%207.png", type: "image" },
     ]
   },
   "bit-das-minas": {
@@ -88,34 +88,34 @@ export const casesData: Record<string, CaseData> = {
     servicos_en: ["Video editing", "Copywriting", "Scripting", "Launches"],
     media: [
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-1-Gi-2.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-1-Gi-2.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/1.png"
+        poster: "/Kaleidos/elementos/1.png"
       },
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-3-Gi.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-3-Gi.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/2.png"
+        poster: "/Kaleidos/elementos/2.png"
       },
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-4-Gi.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-4-Gi.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/3.png"
+        poster: "/Kaleidos/elementos/3.png"
       },
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-5-Gi.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-5-Gi.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/4.png"
+        poster: "/Kaleidos/elementos/4.png"
       },
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-6-Gi.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-6-Gi.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/5.png"
+        poster: "/Kaleidos/elementos/5.png"
       },
       { 
-        src: "/Conteudo_clientes/Bit%20das%20minas/Reels-7-Gi-1.mp4", 
+        src: "/Cases/bit-das-minas/conteudo/Reels-7-Gi-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/6.png"
+        poster: "/Kaleidos/elementos/6.png"
       },
     ]
   },
@@ -136,29 +136,29 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Edição de vídeos", "Roteiros de Reels", "Newsletter"],
     servicos_en: ["Video editing", "Reels scripting", "Newsletter"],
     media: [
-      { src: "/Conteudo_clientes/Layla%20Foz/Capa_Reels1.png", type: "image" },
-      { src: "/Conteudo_clientes/Layla%20Foz/Capa_Reels2.png", type: "image" },
-      { src: "/Conteudo_clientes/Layla%20Foz/Capa_Reels3.png", type: "image" },
-      { src: "/Conteudo_clientes/Layla%20Foz/Capa_Reels4.png", type: "image" },
+      { src: "/Cases/layla-foz/conteudo/Capa_Reels1.png", type: "image" },
+      { src: "/Cases/layla-foz/conteudo/Capa_Reels2.png", type: "image" },
+      { src: "/Cases/layla-foz/conteudo/Capa_Reels3.png", type: "image" },
+      { src: "/Cases/layla-foz/conteudo/Capa_Reels4.png", type: "image" },
       { 
-        src: "/Conteudo_clientes/Layla%20Foz/Reels-1-Layla-1.mp4", 
+        src: "/Cases/layla-foz/conteudo/Reels-1-Layla-1.mp4", 
         type: "video", 
-        poster: "/Conteudo_clientes/Layla%20Foz/Capa_Reels1.png"
+        poster: "/Cases/layla-foz/conteudo/Capa_Reels1.png"
       },
       { 
-        src: "/Conteudo_clientes/Layla%20Foz/Reels-2-Layla-1.mp4", 
+        src: "/Cases/layla-foz/conteudo/Reels-2-Layla-1.mp4", 
         type: "video", 
-        poster: "/Conteudo_clientes/Layla%20Foz/Capa_Reels2.png"
+        poster: "/Cases/layla-foz/conteudo/Capa_Reels2.png"
       },
       { 
-        src: "/Conteudo_clientes/Layla%20Foz/Reels-3-Layla-1.mp4", 
+        src: "/Cases/layla-foz/conteudo/Reels-3-Layla-1.mp4", 
         type: "video", 
-        poster: "/Conteudo_clientes/Layla%20Foz/Capa_Reels3.png"
+        poster: "/Cases/layla-foz/conteudo/Capa_Reels3.png"
       },
       { 
-        src: "/Conteudo_clientes/Layla%20Foz/Reels-4-Layla.mp4", 
+        src: "/Cases/layla-foz/conteudo/Reels-4-Layla.mp4", 
         type: "video", 
-        poster: "/Conteudo_clientes/Layla%20Foz/Capa_Reels4.png"
+        poster: "/Cases/layla-foz/conteudo/Capa_Reels4.png"
       },
     ]
   },
@@ -179,12 +179,12 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Copywrite", "Criação de conteúdo"],
     servicos_en: ["Copywriting", "Content creation"],
     media: [
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.37.16.png", type: "image" },
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.37.28.png", type: "image" },
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.45.29.png", type: "image" },
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.46.20.png", type: "image" },
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.46.26.png", type: "image" },
-      { src: "/Conteudo_clientes/Crypto.com/Captura%20de%20Tela%202025-07-26%20às%2022.46.31.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.37.16.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.37.28.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.45.29.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.46.20.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.46.26.png", type: "image" },
+      { src: "/Cases/crypto-com/conteudo/Captura%20de%20Tela%202025-07-26%20às%2022.46.31.png", type: "image" },
     ]
   },
   "jornal-cripto": {
@@ -204,14 +204,14 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Criação de marca", "Identidade visual", "Desenvolvimento web", "Estratégia de marketing", "Tráfego pago", "Criação de conteúdo", "Automações", "Newsletter", "Webapp"],
     servicos_en: ["Brand creation", "Visual identity", "Web development", "Marketing strategy", "Paid traffic", "Content creation", "Automations", "Newsletter", "Webapp"],
     media: [
-      { src: "/Conteudo_clientes/Jornal%20cripto/1-2.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/2-1.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/8.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/11-1.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/12.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/13-1.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/21-1.png", type: "image" },
-      { src: "/Conteudo_clientes/Jornal%20cripto/22.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/1-2.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/2-1.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/8.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/11-1.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/12.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/13-1.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/21-1.png", type: "image" },
+      { src: "/Cases/jornal-cripto/conteudo/22.png", type: "image" },
     ]
   },
   "mercado-bitcoin": {
@@ -231,13 +231,13 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Criação de conteúdo", "Instagram", "Twitter", "LinkedIn"],
     servicos_en: ["Content creation", "Instagram", "Twitter", "LinkedIn"],
     media: [
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram2.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram3.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram4.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram5.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram6.png", type: "image" },
-      { src: "/Conteudo_clientes/Mercado%20Bitcoin/Instagram8.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram2.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram3.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram4.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram5.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram6.png", type: "image" },
+      { src: "/Cases/mercado-bitcoin/conteudo/Instagram8.png", type: "image" },
     ]
   },
   "orlando": {
@@ -257,9 +257,9 @@ export const casesData: Record<string, CaseData> = {
     servicos: ["Newsletter diária", "Ebooks", "Design"],
     servicos_en: ["Daily newsletter", "Ebooks", "Design"],
     media: [
-      { src: "/Conteudo_clientes/Orlando/Ebook%20custódia.pdf", type: "pdf" },
-      { src: "/Conteudo_clientes/Orlando/Ebook%20de%20Opções%20e%20Realização%20de%20lucros.pdf", type: "pdf" },
-      { src: "/Conteudo_clientes/Orlando/Ebook%20DeFi%20e%20Airdrop.pdf", type: "pdf" },
+      { src: "/Cases/orlando/conteudo/Ebook%20custódia.pdf", type: "pdf" },
+      { src: "/Cases/orlando/conteudo/Ebook%20de%20Opções%20e%20Realização%20de%20lucros.pdf", type: "pdf" },
+      { src: "/Cases/orlando/conteudo/Ebook%20DeFi%20e%20Airdrop.pdf", type: "pdf" },
     ]
   },
   "yasmin": {
@@ -280,29 +280,29 @@ export const casesData: Record<string, CaseData> = {
     servicos_en: ["Reels editing"],
     media: [
       { 
-        src: "/Conteudo_clientes/Yasmin/Reels-1-Yasmin-1.mp4", 
+        src: "/Cases/yasmin/conteudo/Reels-1-Yasmin-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/7.png"
+        poster: "/Kaleidos/elementos/7.png"
       },
       { 
-        src: "/Conteudo_clientes/Yasmin/Reels-2-Yasmin-1.mp4", 
+        src: "/Cases/yasmin/conteudo/Reels-2-Yasmin-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/8.png"
+        poster: "/Kaleidos/elementos/8.png"
       },
       { 
-        src: "/Conteudo_clientes/Yasmin/Reels-3-Yasmin.mp4", 
+        src: "/Cases/yasmin/conteudo/Reels-3-Yasmin.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/9.png"
+        poster: "/Kaleidos/elementos/9.png"
       },
       { 
-        src: "/Conteudo_clientes/Yasmin/Reels-4-Yasmin.mp4", 
+        src: "/Cases/yasmin/conteudo/Reels-4-Yasmin.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/10.png"
+        poster: "/Kaleidos/elementos/10.png"
       },
       { 
-        src: "/Conteudo_clientes/Yasmin/Reels-5-Yasmin.mp4", 
+        src: "/Cases/yasmin/conteudo/Reels-5-Yasmin.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/11.png"
+        poster: "/Kaleidos/elementos/11.png"
       },
     ]
   },
@@ -324,48 +324,48 @@ export const casesData: Record<string, CaseData> = {
     servicos_en: ["Video editing", "Commercial development", "Newsletter", "Copywriting", "AI automations", "Launch strategies", "Ad creatives", "Capture pages", "Design"],
     media: [
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-1-Lucas-1.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-1-Lucas-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/12.png"
+        poster: "/Kaleidos/elementos/12.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-2-Lucas-1.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-2-Lucas-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/13.png"
+        poster: "/Kaleidos/elementos/13.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-3-Lucas.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-3-Lucas.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/14.png"
+        poster: "/Kaleidos/elementos/14.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-4-Lucas.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-4-Lucas.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/15.png"
+        poster: "/Kaleidos/elementos/15.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Palestrantes-Defifest-2025-Video-1.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Palestrantes-Defifest-2025-Video-1.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/16.png"
+        poster: "/Kaleidos/elementos/16.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-6-Lucas.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-6-Lucas.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/17.png"
+        poster: "/Kaleidos/elementos/17.png"
       },
       { 
-        src: "/Conteudo_clientes/Investidor%204.20/Reels-7-Lucas.mp4", 
+        src: "/Cases/investidor-4-20/conteudo/Reels-7-Lucas.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/18.png"
+        poster: "/Kaleidos/elementos/18.png"
       },
-      { src: "/Conteudo_clientes/Investidor%204.20/Criativoanuncio1.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/Criativoanuncio2.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/Criativoanuncio3.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/pagina%20de%20captura/páginacaptura1.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/pagina%20de%20captura/páginacaptura2.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/pagina%20de%20captura/páginacaptura4.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/pagina%20de%20captura/páginacaptura5.png", type: "image" },
-      { src: "/Conteudo_clientes/Investidor%204.20/pagina%20de%20captura/páginacaptura13.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/Criativoanuncio1.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/Criativoanuncio2.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/Criativoanuncio3.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/pagina%20de%20captura/páginacaptura1.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/pagina%20de%20captura/páginacaptura2.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/pagina%20de%20captura/páginacaptura4.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/pagina%20de%20captura/páginacaptura5.png", type: "image" },
+      { src: "/Cases/investidor-4-20/conteudo/pagina%20de%20captura/páginacaptura13.png", type: "image" },
     ]
   },
   "paradigma-education": {
@@ -386,78 +386,177 @@ export const casesData: Record<string, CaseData> = {
     servicos_en: ["Video editing", "Motion graphics", "Animation", "Podcast cuts"],
     media: [
       { 
-        src: "/Conteudo_clientes/Paradigma/20250620_PARADIGMA_01M06S_V3.mp4", 
+        src: "/Cases/paradigma/conteudo/20250620_PARADIGMA_01M06S_V3.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/19.png"
+        poster: "/Kaleidos/elementos/19.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/20250702_PARADIGMA_01M13S.mp4", 
+        src: "/Cases/paradigma/conteudo/20250702_PARADIGMA_01M13S.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/20.png"
+        poster: "/Kaleidos/elementos/20.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/PARADIGMAv2.mp4", 
+        src: "/Cases/paradigma/conteudo/PARADIGMAv2.mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/21.png"
+        poster: "/Kaleidos/elementos/21.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/20250717_PARADIGMA_01M20S_V2(1).mp4", 
+        src: "/Cases/paradigma/conteudo/20250717_PARADIGMA_01M20S_V2(1).mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/22.png"
+        poster: "/Kaleidos/elementos/22.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/20250722_PARADIGMA_01M55S_V2(1).mp4", 
+        src: "/Cases/paradigma/conteudo/20250722_PARADIGMA_01M55S_V2(1).mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/23.png"
+        poster: "/Kaleidos/elementos/23.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/PARADIGMA%20v2(1).mp4", 
+        src: "/Cases/paradigma/conteudo/PARADIGMA%20v2(1).mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/24.png"
+        poster: "/Kaleidos/elementos/24.png"
       },
       { 
-        src: "/Conteudo_clientes/Paradigma/20250801_PARADIGMA_00M40S_V1(1).mp4", 
+        src: "/Cases/paradigma/conteudo/20250801_PARADIGMA_00M40S_V1(1).mp4", 
         type: "video", 
-        poster: "/Imagens/Elementos/25.png"
+        poster: "/Kaleidos/elementos/25.png"
       },
     ]
   },
   "defiverso": {
     id: "defiverso",
     nome: "Defiverso",
-    tags: ["Cripto", "Educação", "Social Media", "Desenvolvimento Web"],
-    descricao: "Criação de conteúdo do zero para Instagram, Twitter e grupo de WhatsApp. Desenvolvimento de toda estratégia de social media e alcance de 8 mil seguidores em 2 meses.",
-    descricao_en: "Content creation from scratch for Instagram, Twitter and WhatsApp group. Full social media strategy reaching 8k followers in 2 months.",
-    fraseImpactante: "8 mil seguidores em apenas 2 meses de trabalho.",
-    fraseImpactante_en: "8k followers in just 2 months.",
-    detalhes: "Desenvolvemos toda a estratégia de social media do Defiverso do zero, criando conteúdo exclusivo para Instagram, Twitter e grupo de WhatsApp. Nossa abordagem focada em educação cripto e insights de mercado resultou em um crescimento impressionante: alcançamos 8 mil seguidores em apenas 2 meses de trabalho.\n\nCriamos posts educativos, carrosséis informativos e conteúdo que posiciona o Defiverso como referência no setor cripto brasileiro. O trabalho incluiu desenvolvimento de identidade visual para redes sociais, calendário editorial estratégico e gestão completa das plataformas.\n\nAlém do social media, participamos do desenvolvimento da plataforma web principal e da comunidade Discord, estabelecendo o Defiverso como a maior plataforma educacional cripto do Brasil.",
-    detalhes_en: "We developed Defiverso’s entire social media strategy from scratch, creating exclusive content for Instagram, Twitter and WhatsApp. Our crypto education focus and market insights delivered impressive growth: we reached 8k followers in just 2 months.\n\nWe created educational posts, informative carousels and content that positions Defiverso as a reference in Brazil’s crypto sector. The work included visual identity for social media, strategic editorial calendar and full platform management.\n\nBeyond social, we contributed to the main web platform and the Discord community, establishing Defiverso as the largest crypto education platform in Brazil.",
-    depoimentos: "Crescimento exponencial em social media e posicionamento como referência no setor cripto.",
+    tags: ["Cripto", "Educação", "Social Media", "Marketing de Conteúdo", "Geração de Leads", "Automação"],
+    descricao: "Acelerando o Universo Cripto com Conteúdo Estratégico e Máquina de Leads. Desde junho de 2025, gestão completa da estratégia de marketing de conteúdo e aquisição de leads do Defiverso.",
+    descricao_en: "Accelerating the Crypto Universe with Strategic Content and Lead Generation Machine. Since June 2025, complete management of Defiverso's content marketing strategy and lead acquisition.",
+    fraseImpactante: "29.000+ inscrições no Minicurso, 26.554 assinantes na Newsletter e 12 Milhões de visualizações orgânicas em 90 dias.",
+    fraseImpactante_en: "29,000+ course enrollments, 26,554 newsletter subscribers and 12 Million organic views in 90 days.",
+    detalhes: "Desde junho de 2025, a Kaleidos assumiu a gestão completa da estratégia de marketing de conteúdo e aquisição de leads do Defiverso. O objetivo central foi estabelecer a marca como a **maior plataforma educacional cripto do Brasil**, transformando informações complexas de mercado em conteúdo acessível, de alto valor e que gerasse resultados concretos.\n\nNossa atuação se concentrou em três frentes principais:\n\n**1. Social Media (Instagram & Twitter):** Criação de conteúdo educativo de ponta, desenvolvimento de identidade visual e gestão completa do Instagram, com foco em crescimento orgânico. Implementação de um fluxo de automação via IA para o Twitter, garantindo presença constante e direcionamento de tráfego.\n\n**2. Email Marketing & Geração de Leads:** Criação da newsletter do zero e desenvolvimento de um **Minicurso de 7 Dias** como *lead magnet* de alta conversão.\n\n**3. Suporte a Lançamentos:** Colaboração na criação de **criativos estáticos e carrosséis** para campanhas de tráfego pago, otimizando a performance das mídias.",
+    detalhes_en: "Since June 2025, Kaleidos has taken complete management of Defiverso's content marketing strategy and lead acquisition. The central goal was to establish the brand as Brazil's largest crypto education platform, transforming complex market information into accessible, high-value content that generates concrete results.\n\nOur work focused on three main fronts:\n\n**1. Social Media (Instagram & Twitter):** Creation of cutting-edge educational content, visual identity development and complete Instagram management, focusing on organic growth. Implementation of an AI-powered automation flow for Twitter, ensuring constant presence and traffic direction.\n\n**2. Email Marketing & Lead Generation:** Newsletter creation from scratch and development of a **7-Day Mini Course** as a high-converting lead magnet.\n\n**3. Launch Support:** Collaboration in creating **static creatives and carousels** for paid traffic campaigns, optimizing media performance.",
+    depoimentos: "A parceria Kaleidos e Defiverso resultou na criação de um ecossistema de marketing digital completo e de alta performance.",
     links: ["https://defiverso.com", "https://news.defiverso.com", "https://www.instagram.com/defiverso/"],
-    metricas: "8 mil seguidores em 2 meses\n\nConstruímos toda a estratégia de social media do Defiverso do zero, estabelecendo a plataforma como a maior referência educacional cripto do Brasil com crescimento exponencial e engajamento massivo.\n\n• 8 mil seguidores em apenas 2 meses\n• Crescimento exponencial em engajamento\n• Posicionamento como referência no setor cripto\n• Estratégia multicanal (Instagram, Twitter, WhatsApp)\n• Estabelecimento como maior plataforma educacional cripto do Brasil\n\nA estratégia de conteúdo educativo e insights de mercado resultou em um crescimento impressionante, estabelecendo o Defiverso como a principal referência em educação cripto no Brasil.",
-    metricas_en: "8k followers in 2 months\n\nWe built Defiverso's entire social media strategy from scratch, establishing the platform as Brazil's largest crypto education reference with exponential growth and massive engagement.\n\n• 8k followers in just 2 months\n• Exponential engagement growth\n• Positioning as reference in crypto sector\n• Multi-channel strategy (Instagram, Twitter, WhatsApp)\n• Establishment as Brazil's largest crypto education platform\n\nThe strategy of educational content and market insights resulted in impressive growth, establishing Defiverso as the main reference in crypto education in Brazil.",
-    servicos: ["Social Media", "Criação de conteúdo", "Desenvolvimento web", "Estratégia de marketing", "Gestão de comunidade"],
-    servicos_en: ["Social Media", "Content creation", "Web development", "Marketing strategy", "Community management"],
+    metricas: "**Máquina de Aquisição de Leads - Email Marketing:**\n\n• **Mais de 29.000 inscrições** no Minicurso \"7 Dias DeFi\"\n• **26.554 assinantes ativos** da Newsletter\n• **Taxa de Abertura Média de 33.01%** (muito acima da média do mercado de 15-25%)\n• **Taxa de Abertura do Minicurso no pico: 54.76%**\n• **Taxa de Cliques (CTR) do Minicurso no pico: 24.55%**\n\n**Construção de Audiência - Instagram (90 dias):**\n\n• **12 Milhões de Visualizações** de Alcance Orgânico\n• **Crescimento de 28,4%** no Alcance Orgânico\n• **302.9 Mil contas** de Alcance Total\n• **136.9 Mil interações** com conteúdo (curtidas, comentários, salvos e compartilhamentos)\n• **14.4 Mil cliques no link** (tráfego qualificado)\n• **8.6 Mil novos seguidores** em apenas 3 meses\n\n**Otimização de Processos:**\n\n• Automação no Twitter via IA para presença constante\n• Criação de criativos estáticos e carrosséis para tráfego pago\n\nEstes resultados concretos demonstram a capacidade da Kaleidos de entregar não apenas conteúdo de qualidade, mas também **crescimento sustentável e conversão em escala** para o Defiverso.",
+    metricas_en: "**Lead Generation Machine - Email Marketing:**\n\n• **Over 29,000 enrollments** in the \"7 Days DeFi\" Mini Course\n• **26,554 active subscribers** to the Newsletter\n• **Average Open Rate of 33.01%** (well above market average of 15-25%)\n• **Mini Course Peak Open Rate: 54.76%**\n• **Mini Course Peak Click-Through Rate (CTR): 24.55%**\n\n**Audience Building - Instagram (90 days):**\n\n• **12 Million Organic Reach** views\n• **28.4% growth** in Organic Reach\n• **302.9 Thousand accounts** of Total Reach\n• **136.9 Thousand interactions** with content (likes, comments, saves and shares)\n• **14.4 Thousand link clicks** (qualified traffic)\n• **8.6 Thousand new followers** in just 3 months\n\n**Process Optimization:**\n\n• Twitter automation via AI for constant presence\n• Creation of static creatives and carousels for paid traffic\n\nThese concrete results demonstrate Kaleidos' ability to deliver not only quality content, but also **sustainable growth and scale conversion** for Defiverso.",
+    servicos: ["Design posts", "Instagram Defiverso", "Newsletter Defiverso", "Curso 7 dias DeFi", "Twitter", "Resultados gerais"],
+    servicos_en: ["Design posts", "Instagram Defiverso", "Newsletter Defiverso", "7 Days DeFi Course", "Twitter", "General results"],
     media: [
-      { 
-        src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.02.27.png", 
-        type: "image", 
-        link: "https://www.instagram.com/p/DLpl-wfx2FQ/?img_index=1"
-      },
-      { 
-        src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.03.09.png", 
-        type: "image", 
-        link: "https://www.instagram.com/p/DMdHCjWxjxg/?img_index=1"
-      },
-      { 
-        src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.03.13.png", 
-        type: "image", 
-        link: "https://www.instagram.com/p/DMXysRxxHEH/?img_index=1"
-      },
-      { src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.03.19.png", type: "image" },
-      { src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.03.48.png", type: "image" },
-      { src: "/Conteudo_clientes/Defiverso/Captura%20de%20Tela%202025-07-27%20às%2000.04.56.png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso.png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso (1).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso (2).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso (3).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso (4).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Breaking news defiverso (5).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Posts defiverso.png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Posts defiverso (1).png", type: "image" },
+      { src: "/Cases/defiverso/conteudo/Posts defiverso (2).png", type: "image" },
     ]
+  },
+  "ledger": {
+    id: "ledger",
+    nome: "Ledger",
+    tags: ["Cripto", "Hardware", "Segurança"],
+    descricao: "Parceria com Ledger para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Ledger for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://www.ledger.com"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
+  },
+  "parfin": {
+    id: "parfin",
+    nome: "Parfin",
+    tags: ["Cripto", "Infraestrutura", "Web3"],
+    descricao: "Parceria com Parfin para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Parfin for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://parfin.io"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
+  },
+  "kast": {
+    id: "kast",
+    nome: "Kast",
+    tags: ["Cripto", "DeFi", "Web3"],
+    descricao: "Parceria com Kast para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Kast for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://www.kast.xyz/"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
+  },
+  "neobankless": {
+    id: "neobankless",
+    nome: "Neobankless",
+    tags: ["Cripto", "Fintech", "Banking"],
+    descricao: "Parceria com Neobankless para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Neobankless for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://neobankless.com"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
+  },
+  "castacrypto": {
+    id: "castacrypto",
+    nome: "Casta Crypto",
+    tags: ["Cripto", "Educação", "Social Media"],
+    descricao: "Parceria com Casta Crypto para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Casta Crypto for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://instagram.com/castacrypto"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
+  },
+  "vault": {
+    id: "vault",
+    nome: "Vault",
+    tags: ["Cripto", "Investimentos", "Gestão"],
+    descricao: "Parceria com Vault para desenvolvimento de conteúdo e estratégias de marketing.",
+    descricao_en: "Partnership with Vault for content development and marketing strategies.",
+    fraseImpactante: "Em breve.",
+    fraseImpactante_en: "Coming soon.",
+    detalhes: "Em breve, mais informações sobre este case.",
+    detalhes_en: "Coming soon, more information about this case.",
+    depoimentos: "",
+    links: ["https://vaultcapital.com.br/pt"],
+    metricas: "Em breve.",
+    metricas_en: "Coming soon.",
+    servicos: ["Em breve"],
+    servicos_en: ["Coming soon"],
+    media: []
   }
 };
 export function getCaseData(id: string): CaseData | null {

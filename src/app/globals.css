@@ -102,7 +102,7 @@
 
 @media (max-width: 768px) {
   .marquee-content {
-    animation: marquee-scroll 16s linear infinite; /* 2x mais rápido no mobile (32s -> 16s) */
+    animation: marquee-scroll 32s linear infinite; /* 2x mais rápido no mobile (32s -> 16s) */
   }
 }
 

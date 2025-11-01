@@ -164,7 +164,7 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
         {isVideo(item.src) ? (
           <div className="relative">
             <video
-              src={item.src}
+              src={encodeURI(item.src)}
               autoPlay={isActive}
               loop
               muted
@@ -177,11 +177,6 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
                 objectFit: "contain"
               }}
             />
-            <div className={`absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 ${cardStyle.bg} rounded-lg p-2 sm:p-3`}>
-              <p className={`text-xs sm:text-sm font-display ${cardStyle.text} text-center`}>
-                {title}
-              </p>
-            </div>
           </div>
         ) : isPdf(item.src) ? (
           <div className="bg-gray-50 rounded-xl p-4 sm:p-8 flex items-center justify-center">
@@ -234,11 +229,6 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
                 style={{ objectFit: 'cover' }}
               />
             )}
-            <div className={`absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 ${cardStyle.bg} rounded-lg p-2 sm:p-3`}>
-              <p className={`text-xs sm:text-sm font-display ${cardStyle.text} text-center`}>
-                {title}
-              </p>
-            </div>
           </div>
         )}
       </div>
@@ -469,7 +459,7 @@ export function CaseCarousel({ media, title, clientType = "reels", format = 'def
               )}
 
               <video
-                src={media[selectedIndex].src}
+                src={encodeURI(media[selectedIndex].src)}
                 className="max-w-full max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg"
                 controls
                 autoPlay={isPlaying}

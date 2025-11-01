@@ -164,7 +164,7 @@ export default function KaleidosGrowthPage() {
               <div className="relative">
                 <div className="rounded-2xl h-auto overflow-hidden">
                   <Image 
-                    src="/Elementos/KaleidosLaunch.png" 
+                    src="/Kaleidos/elementos/KaleidosLaunch.png" 
                     alt="Kaleidos Launch - Lançamentos em Ação" 
                     width={1600}
                     height={900}
@@ -181,7 +181,7 @@ export default function KaleidosGrowthPage() {
               <div className="relative order-2 lg:order-1">
                 <div className="rounded-2xl h-auto overflow-hidden">
                   <Image 
-                    src="/Elementos/KaleidosGrowth.png" 
+                    src="/Kaleidos/elementos/KaleidosGrowth.png" 
                     alt="Kaleidos Growth - Growth Orgânico" 
                     width={1600}
                     height={900}

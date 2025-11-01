@@ -154,7 +154,7 @@ export default function SobrePage() {
             >
               <div className="relative aspect-square bg-gray-100 rounded-3xl overflow-hidden shadow-lg">
                 <Image
-                  src="/Imagens/nós.jpg"
+                  src="/Kaleidos/imagens/nós.jpg"
                   alt="Equipe Kaleidos"
                   fill
                   className="object-cover"
