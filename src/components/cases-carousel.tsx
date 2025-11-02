@@ -65,7 +65,7 @@ const casesCarouselData = [
     description: "Criação de conteúdo do zero para Instagram, Twitter e grupo de WhatsApp. Desenvolvimento de toda estratégia de social media.",
     metric: "8K Seguidores",
     metricColor: "bg-pink-500",
-    coverImage: "/Cases/defiverso/conteudo/Captura de Tela 2025-07-27 às 00.02.27.png",
+    coverImage: "/Cases/defiverso/conteudo/Breaking news defiverso.png",
     href: "/cases/defiverso"
   },
   {
