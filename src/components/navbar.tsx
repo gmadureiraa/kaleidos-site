@@ -66,7 +66,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href={withLang('/')} className="flex items-center space-x-2">
             <Image
-              src="/logo/Logos-11.svg"
+              src="/Kaleidos/logo/Logos-11.svg"
               alt="Kaleidos Logo"
               width={32}
               height={32}
