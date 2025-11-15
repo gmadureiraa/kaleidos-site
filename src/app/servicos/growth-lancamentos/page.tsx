@@ -20,9 +20,11 @@ import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
 import { FooterDemo } from "@/components/ui/footer-demo";
 import { generateServiceSchema } from "@/lib/seo-helpers";
+import { useAnalytics } from "@/components/analytics";
 
 export default function KaleidosGrowthPage() {
   const { locale } = useI18n();
+  const { trackWhatsApp } = useAnalytics();
   const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
 
@@ -49,12 +51,20 @@ export default function KaleidosGrowthPage() {
   const handleWhatsApp = () => {
     const message = locale==='en' ? 'Hello! I need Kaleidos Growth to create a viral launch. Can you help me?' : "Olá! Preciso da ajuda da Kaleidos Growth para criar um lançamento viral. Podem me ajudar?";
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("servico_growth_lancamentos", "service_page");
+    
     window.open(whatsappUrl, '_blank');
   };
 
   const handleWhatsAppSpecific = (service: string) => {
     const message = `Olá! Preciso de ajuda com ${service}. Podem me ajudar?`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("servico_growth_lancamentos", `service_${service}`);
+    
     window.open(whatsappUrl, '_blank');
   };
 

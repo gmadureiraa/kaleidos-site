@@ -7,11 +7,13 @@ import { useI18n } from "@/i18n/useI18n";
 import { useState } from "react";
 import { WHATSAPP_NUMBER, SERVICOS } from "@/lib/constants";
 import { FooterDemo } from "@/components/ui/footer-demo";
+import { useAnalytics } from "@/components/analytics";
 
 export default function ContatoPage() {
   const { t, locale } = useI18n();
   const withLang = (path: string) => locale === 'en' ? `${path}${path.includes('?') ? '&' : '?' }lang=en` : path;
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const { trackWhatsApp } = useAnalytics();
   
   // Lista de serviços traduzida quando EN
   const SERVICES_LOCALIZED: string[] = locale === 'en'
@@ -47,6 +49,10 @@ export default function ContatoPage() {
     let texto = `${header} %0A`;
     texto += selectedServices.map((s) => `- ${s}`).join("%0A");
     if (!hasSelection) texto = fallback;
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("contato_page", hasSelection ? `services_${selectedServices.length}` : "general");
+    
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`, "_blank");
   };
 

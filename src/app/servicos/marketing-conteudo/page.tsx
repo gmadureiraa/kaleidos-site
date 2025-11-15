@@ -19,9 +19,11 @@ import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import { FooterDemo } from "@/components/ui/footer-demo";
 import { generateServiceSchema } from "@/lib/seo-helpers";
+import { useAnalytics } from "@/components/analytics";
 
 export default function KaleidosContentPage() {
   const { locale } = useI18n();
+  const { trackWhatsApp } = useAnalytics();
   const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
 
@@ -43,6 +45,10 @@ export default function KaleidosContentPage() {
   const handleWhatsApp = () => {
     const message = locale==='en' ? "Hello! I need Kaleidos Content to create content that goes viral. Can you help me?" : "Olá! Preciso da ajuda da Kaleidos Content para criar conteúdo que viraliza. Podem me ajudar?";
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("servico_marketing_conteudo", "service_page");
+    
     window.open(whatsappUrl, '_blank');
   };
 

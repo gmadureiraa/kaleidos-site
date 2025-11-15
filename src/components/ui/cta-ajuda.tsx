@@ -11,7 +11,7 @@ import { useAnalytics } from "@/components/analytics";
 export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const { locale } = useI18n();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const { trackClick, trackConversion } = useAnalytics();
+  const { trackWhatsApp, trackClick } = useAnalytics();
 
   const handleWhatsApp = useCallback(() => {
     const selected = selectedServices.join(', ');
@@ -20,12 +20,11 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
       : (locale==='pt' ? "Olá! Preciso da ajuda da Kaleidos. Podem me ajudar?" : "Hello! I need Kaleidos' help. Can you help me?");
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     
-    // Track click and conversion (Google Analytics)
-    trackClick("whatsapp_cta", "contact");
-    trackConversion("whatsapp_message", selectedServices.length > 0 ? selectedServices.length : 0);
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("cta_ajuda", selectedServices.length > 0 ? `services_${selectedServices.length}` : "general");
     
     window.open(whatsappUrl, '_blank');
-  }, [selectedServices, locale, trackClick, trackConversion]);
+  }, [selectedServices, locale, trackWhatsApp]);
 
   const services = useMemo(() => [
     {

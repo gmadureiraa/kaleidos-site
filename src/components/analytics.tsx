@@ -78,6 +78,23 @@ export function useAnalytics() {
     trackEvent("time_on_page", "engagement", undefined, seconds);
   };
 
+  const trackWhatsApp = (location: string, context?: string) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      // Evento principal para WhatsApp
+      window.gtag("event", "whatsapp_click", {
+        event_category: "contact",
+        event_label: location,
+        value: 1,
+        // Parâmetros customizados para GA4
+        location: location,
+        context: context || "general",
+      });
+      
+      // Também registrar como conversão
+      trackConversion("whatsapp_click", 1);
+    }
+  };
+
   return {
     trackEvent,
     trackPageView,
@@ -85,6 +102,7 @@ export function useAnalytics() {
     trackConversion,
     trackScroll,
     trackTimeOnPage,
+    trackWhatsApp,
   };
 }
 

@@ -5,9 +5,11 @@ import Link from "next/link"
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/useI18n";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { useAnalytics } from "@/components/analytics";
 
 export function FooterDemo() {
   const { t, locale } = useI18n();
+  const { trackWhatsApp } = useAnalytics();
   
   const services = locale === 'en' 
     ? [
@@ -97,6 +99,7 @@ export function FooterDemo() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#7CFF6B] transition-colors"
                 aria-label="WhatsApp"
+                onClick={() => trackWhatsApp("footer_social", "social_links")}
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
@@ -155,6 +158,7 @@ export function FooterDemo() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#7CFF6B] transition-colors text-sm flex items-center group"
+                  onClick={() => trackWhatsApp("footer_contact", "contact_section")}
                 >
                   <Phone className="h-4 w-4 mr-2" />
                   <span>WhatsApp</span>

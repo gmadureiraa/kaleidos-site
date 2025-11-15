@@ -18,9 +18,11 @@ import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import { FooterDemo } from "@/components/ui/footer-demo";
 import { generateServiceSchema } from "@/lib/seo-helpers";
+import { useAnalytics } from "@/components/analytics";
 
 export default function KaleidosIAPage() {
   const { locale } = useI18n();
+  const { trackWhatsApp } = useAnalytics();
   const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
 
@@ -46,12 +48,20 @@ export default function KaleidosIAPage() {
 
   const handleWhatsApp = () => {
     const text = locale==='en' ? 'Hello! I want to know more about AI automations from Kaleidos' : 'Olá! Quero saber mais sobre automações com IA da Kaleidos';
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("servico_ia_automacoes", "service_page");
+    
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   const handleWhatsAppSpecific = (service: string) => {
     const message = `Olá! Preciso de ajuda com ${service}. Podem me ajudar?`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Track WhatsApp click (Google Analytics)
+    trackWhatsApp("servico_ia_automacoes", `service_${service}`);
+    
     window.open(whatsappUrl, '_blank');
   };
 
