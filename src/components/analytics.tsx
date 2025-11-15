@@ -25,6 +25,9 @@ export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
             gtag('js', new Date());
             gtag('config', '${gaId}', {
               page_path: window.location.pathname,
+              anonymize_ip: true,
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false,
             });
           `,
         }}

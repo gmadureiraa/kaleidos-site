@@ -2,13 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { CaseCarousel } from "@/components/ui/case-carousel";
 import { CryptoTweetsCarousel } from "@/components/ui/crypto-tweets-carousel";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { FooterDemo } from "@/components/ui/footer-demo";
 import { useI18n } from "@/i18n/useI18n";
+import { generateCaseStudySchema, generateBreadcrumbSchema } from "@/lib/seo-helpers";
 
 interface CaseLayoutProps {
   caseData: {
@@ -205,8 +205,39 @@ export function CaseLayout({ caseData, clientType, visualSection }: CaseLayoutPr
 
 
 
+  // Gerar structured data para o case
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kaleidos.com.br";
+  const firstImage = caseData.media.find(m => m.type === "image");
+  const imageUrl = firstImage ? `${siteUrl}${firstImage.src}` : undefined;
+  
+  const caseStudySchema = generateCaseStudySchema(
+    caseData.nome,
+    caseData.descricao || caseData.fraseImpactante || "",
+    caseData.nome,
+    caseData.metricas || "",
+    new Date().toISOString(),
+    `/cases/${caseData.id}`,
+    imageUrl
+  );
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { label: "Home", href: "/" },
+    { label: "Cases", href: "/cases" },
+    { label: caseData.nome },
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      
       {/* Header com Breadcrumbs */}
       <div className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 py-6">
@@ -215,15 +246,7 @@ export function CaseLayout({ caseData, clientType, visualSection }: CaseLayoutPr
               { label: locale === 'en' ? 'Cases' : 'Cases', href: '/cases' },
               { label: nome }
             ]}
-            className="mb-4"
           />
-          <Link 
-            href={locale==='en'?'/cases?lang=en':'/cases'} 
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors text-sm"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            {t('case','breadcrumb')}
-          </Link>
         </div>
       </div>
 

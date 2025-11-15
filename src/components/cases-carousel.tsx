@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { CasesCarouselSkeleton } from "@/components/ui/skeletons";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
-import { useUmami } from "@/hooks/use-umami";
+import { useAnalytics } from "@/components/analytics";
 
 const casesCarouselData = [
   {
@@ -90,9 +90,9 @@ const casesCarouselData = [
 
 function CasesCarouselContent() {
   const { locale } = useI18n();
+  const { trackClick } = useAnalytics();
   const withLang = (path: string) => locale === 'en' ? `${path}${path.includes('?') ? '&' : '?' }lang=en` : path;
   const [isMobile, setIsMobile] = useState(false);
-  const { trackLinkClick, trackButtonClick } = useUmami();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -170,7 +170,6 @@ function CasesCarouselContent() {
               <Link 
                 href={withLang(caseItem.href)} 
                 className="block group"
-                onClick={() => trackLinkClick(caseItem.href, caseItem.title, "cases_carousel")}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -241,7 +240,7 @@ function CasesCarouselContent() {
           <Link 
             href="/cases"
             className="inline-block bg-pink-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-pink-600 transition-colors text-base sm:text-lg shadow-lg"
-            onClick={() => trackButtonClick("view_all_cases", "cases_carousel", "navigate_to_cases")}
+            onClick={() => trackClick("view_all_cases", "cases_carousel")}
           >
             Ver Todos os Cases
           </Link>

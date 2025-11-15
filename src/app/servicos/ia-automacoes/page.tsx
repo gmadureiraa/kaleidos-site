@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import { FooterDemo } from "@/components/ui/footer-demo";
+import { generateServiceSchema } from "@/lib/seo-helpers";
 
 export default function KaleidosIAPage() {
   const { locale } = useI18n();
@@ -38,6 +39,11 @@ export default function KaleidosIAPage() {
     return () => clearInterval(autoplay);
   }, [api, isPaused]);
 
+  const serviceSchema = generateServiceSchema(
+    "IA e Automações",
+    "Automações inteligentes que transformam seu negócio. Chatbots personalizados, workflows automatizados e processos que funcionam 24/7."
+  );
+
   const handleWhatsApp = () => {
     const text = locale==='en' ? 'Hello! I want to know more about AI automations from Kaleidos' : 'Olá! Quero saber mais sobre automações com IA da Kaleidos';
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
@@ -51,6 +57,12 @@ export default function KaleidosIAPage() {
 
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-black overflow-hidden z-10">
         <div className="max-w-6xl mx-auto px-4 text-center">

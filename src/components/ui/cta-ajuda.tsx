@@ -3,19 +3,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Brain, PenTool, Video, Mail, Rocket, FileText, Workflow, Brush } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import { useAnalytics } from "@/components/analytics";
-import { useUmami } from "@/hooks/use-umami";
 
 export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const { locale } = useI18n();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const { trackClick, trackConversion } = useAnalytics();
-  const { trackButtonClick, trackConversion: trackUmamiConversion } = useUmami();
 
-  const handleWhatsApp = () => {
+  const handleWhatsApp = useCallback(() => {
     const selected = selectedServices.join(', ');
     const message = selectedServices.length > 0
       ? (locale==='pt' ? `Olá! Preciso de ajuda com: ${selected}. Podem me ajudar?` : `Hello! I need help with: ${selected}. Can you help me?`)
@@ -26,17 +24,10 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
     trackClick("whatsapp_cta", "contact");
     trackConversion("whatsapp_message", selectedServices.length > 0 ? selectedServices.length : 0);
     
-    // Track with Umami
-    trackButtonClick("whatsapp_cta", "cta_section", "whatsapp_click");
-    trackUmamiConversion("whatsapp_message", selectedServices.length > 0 ? selectedServices.length : 0, {
-      services_selected: selectedServices,
-      location: "cta_section"
-    });
-    
     window.open(whatsappUrl, '_blank');
-  };
+  }, [selectedServices, locale, trackClick, trackConversion]);
 
-  const services = [
+  const services = useMemo(() => [
     {
       title: locale==='en' ? 'Video Editing' : 'Edição de Vídeo',
       description: locale==='en' ? 'Professional editing for reels, ads and institutional videos' : 'Edição profissional para reels, anúncios e institucionais',
@@ -110,7 +101,7 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
       icon: Video,
       value: 'motion graphics'
     }
-  ];
+  ], [locale]);
 
   return (
     <section id="ajuda-section" className={`w-full ${variant==='dark' ? 'bg-black' : 'bg-white'} py-20 px-6`}>
@@ -131,20 +122,31 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
               mass: 0.5,
             }}
           >
-            {services.map((service) => {
+            {services.map((service, index) => {
               const isSelected = selectedServices.includes(service.value);
+              // Alternar entre rosa e verde baseado no índice
+              const isPink = index % 2 === 0;
+              const selectedColorClass = isPink 
+                ? (variant==='dark' ? 'bg-[#2a1711] text-[#ff9066] border-transparent' : 'bg-pink-50 text-pink-700 border-pink-300')
+                : (variant==='dark' ? 'bg-[#1a2a1a] text-[#7CFF6B] border-transparent' : 'bg-green-50 text-green-700 border-green-300');
+              const checkCircleBg = isPink
+                ? (variant==='dark' ? 'bg-[#ff9066]' : 'bg-pink-500')
+                : (variant==='dark' ? 'bg-[#7CFF6B]' : 'bg-green-500');
+              const checkCircleText = isPink
+                ? (variant==='dark' ? 'text-[#2a1711]' : 'text-white')
+                : (variant==='dark' ? 'text-black' : 'text-white');
+              
               return (
                 <motion.button
                   key={service.value}
                   onClick={() => {
-                    const wasSelected = selectedServices.includes(service.value);
                     setSelectedServices((prev) =>
                       prev.includes(service.value)
                         ? prev.filter(v => v !== service.value)
                         : [...prev, service.value]
                     );
                     // Track service selection
-                    trackButtonClick(`service_${service.value}`, "cta_section", wasSelected ? "unselect" : "select");
+                    trackClick(`service_${service.value}`, "cta_section");
                   }}
                   layout
                   initial={false}
@@ -157,13 +159,16 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
                     mass: 0.5,
                     scale: { duration: 0.1 },
                   }}
-                   className={`
-                    inline-flex items-center px-5 py-3 rounded-full text-base sm:text-lg font-medium
-                    whitespace-nowrap overflow-hidden border
-                    ${variant==='dark'
-                      ? `${isSelected ? 'bg-[#2a1711] text-[#ff9066] border-transparent' : 'bg-zinc-700/60 text-zinc-300 border-zinc-600'}`
-                      : `${isSelected ? 'bg-pink-50 text-pink-700 border-pink-300' : 'bg-white text-neutral-800 border-neutral-200'}`}
-                  `}
+                  className={`
+                   inline-flex items-center px-5 py-3 rounded-full text-base sm:text-lg font-medium
+                   whitespace-nowrap overflow-hidden border
+                   focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2
+                   ${variant==='dark'
+                     ? `${isSelected ? selectedColorClass : 'bg-zinc-700/60 text-zinc-300 border-zinc-600'}`
+                     : `${isSelected ? selectedColorClass : 'bg-white text-neutral-800 border-neutral-200'}`}
+                 `}
+                  aria-label={`${isSelected ? 'Desmarcar' : 'Selecionar'} serviço: ${service.title}`}
+                  aria-pressed={isSelected}
                 >
                   <motion.div 
                     className="relative flex items-center"
@@ -190,8 +195,8 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
                           }}
                           className="absolute right-0"
                         >
-                          <div className={`w-4 h-4 rounded-full ${variant==='dark' ? 'bg-[#ff9066]' : 'bg-pink-500'} flex items-center justify-center`}>
-                          <CheckCircle className={`w-3 h-3 ${variant==='dark' ? 'text-[#2a1711]' : 'text-white'}`} strokeWidth={1.5} />
+                          <div className={`w-4 h-4 rounded-full ${checkCircleBg} flex items-center justify-center`}>
+                          <CheckCircle className={`w-3 h-3 ${checkCircleText}`} strokeWidth={1.5} />
                           </div>
                         </motion.span>
                       )}

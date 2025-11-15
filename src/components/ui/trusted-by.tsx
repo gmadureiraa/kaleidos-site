@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useUmami } from "@/hooks/use-umami";
 import { useState } from "react";
 
 const clients = [
@@ -22,7 +21,6 @@ const clients = [
 
 function ClientLogo({ client, index }: { client: typeof clients[0]; index: number }) {
   const [hasError, setHasError] = useState(false);
-  const { trackLinkClick } = useUmami();
 
   if (hasError) {
     return (
@@ -39,12 +37,11 @@ function ClientLogo({ client, index }: { client: typeof clients[0]; index: numbe
       target="_blank" 
       rel="noopener noreferrer"
       className="marquee-item block min-w-[120px]"
-      onClick={() => trackLinkClick(client.url, client.name, "trusted_by_carousel")}
     >
       <div className="relative h-16 w-auto flex items-center justify-center">
         <img
           src={client.logo}
-          alt={client.name}
+          alt={`Logo de ${client.name}, parceiro da Kaleidos Digital`}
           className="object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
           style={{ 
             maxHeight: '64px',
@@ -65,11 +62,11 @@ function ClientLogo({ client, index }: { client: typeof clients[0]; index: numbe
 
 export function TrustedBy() {
   return (
-    <div className="w-full py-16 bg-black">
-      <div className="text-center mb-12">
-        <p className="text-lg font-medium text-gray-400 uppercase tracking-wider">
+    <section className="w-full pt-0 sm:pt-2 pb-16 bg-black" aria-labelledby="trusted-by-heading">
+      <div className="text-center mb-6 sm:mb-8">
+        <h2 id="trusted-by-heading" className="text-lg font-medium text-gray-400 uppercase tracking-wider">
           Parceiros que confiam
-        </p>
+        </h2>
       </div>
       
       <div className="max-w-7xl mx-auto px-6">
@@ -87,6 +84,6 @@ export function TrustedBy() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

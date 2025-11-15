@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, Users, ArrowRight, Instagram, Twitter, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Sparkles, ArrowRight, Instagram, Twitter, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
@@ -63,16 +63,6 @@ export default function SobrePage() {
               <ArrowLeft className="w-4 h-4 mr-2" />
               {t('about','backHome')}
             </Link>
-            
-            <div className="flex items-center gap-3">
-              <Image
-                src="/logo/Logos-01.svg"
-                alt="Kaleidos Logo"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </div>
           </div>
         </div>
       </header>
@@ -99,6 +89,7 @@ export default function SobrePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
+            style={{ fontFamily: 'var(--font-inter), Inter, system-ui, sans-serif' }}
           >
             {t('about','heroTagline')}
           </motion.p>

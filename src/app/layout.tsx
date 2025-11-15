@@ -4,9 +4,10 @@ import localFont from "next/font/local";
 import { Navbar } from "@/components/navbar";
 import { StructuredData } from "@/components/structured-data";
 import { GoogleAnalytics } from "@/components/analytics";
-import { Umami } from "@/components/umami";
+import { Clarity } from "@/components/clarity";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { SmoothScrollProvider } from "@/components/ui/smooth-scroll-provider";
+import { SkipToContent } from "@/components/ui/skip-to-content";
 import "./globals.css";
 
 // Fontes locais otimizadas
@@ -67,6 +68,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  other: {},
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -127,8 +129,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {/* Preload fontes críticas */}
+        <link
+          rel="preload"
+          href="/Kaleidos/fonts/Inter/Inter-VariableFont_opsz,wght.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/Kaleidos/fonts/Atelier/OpenType-TT/Atelier.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${atelier.variable} ${inter.variable} ${gridlite.variable} font-sans`}>
+        <SkipToContent />
         <SmoothScrollProvider>
           <ErrorBoundary>
             <StructuredData />
@@ -139,7 +159,7 @@ export default function RootLayout({
               {children}
             </Suspense>
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
-            <Umami />
+            <Clarity />
           </ErrorBoundary>
         </SmoothScrollProvider>
       </body>

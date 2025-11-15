@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
 import {
   Cloud,
   fetchSimpleIcons,
@@ -34,7 +33,6 @@ export const cloudProps: Omit<ICloud, "children"> = {
     outlineColour: "#0000",
     maxSpeed: 0.03,
     minSpeed: 0.015,
-    // dragControl: false,
   },
 };
 
@@ -77,7 +75,7 @@ export function IconCloudDemo() {
 export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const [isMounted, setIsMounted] = useState(false);
-  const { theme } = useTheme();
+  const theme = "light"; // Site não tem dark mode, sempre usar light
 
   useEffect(() => {
     setIsMounted(true);
@@ -87,7 +85,7 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const renderedIcons = useMemo(() => {
     if (!data) return null;
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light")
+      renderCustomIcon(icon, theme)
     );
   }, [data, theme]);
 
@@ -95,7 +93,7 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   if (!isMounted) {
     return (
       <div 
-        className="w-full h-64 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg"
+        className="w-full h-64 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -105,7 +103,7 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
           margin: "auto",
         }}
       >
-        <div className="text-gray-500 dark:text-gray-400">Carregando...</div>
+        <div className="text-gray-500">Carregando...</div>
       </div>
     );
   }

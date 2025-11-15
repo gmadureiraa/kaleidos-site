@@ -563,8 +563,8 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                                     </p>
                                 )}
                             </div>
-                            <div className="text-neutral-400 dark:text-neutral-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                                <ArrowUpRight className="h-5 w-5" />
+                            <div className="text-neutral-400 dark:text-neutral-500">
+                                <ArrowUpRight className="h-5 w-5 text-[#7CFF6B] dark:text-[#7CFF6B] group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors duration-200" />
                             </div>
                         </div>
 
@@ -685,7 +685,7 @@ export default function BentoGrid() {
                             variants={fadeInUp}
                             className="md:col-span-1 rounded-xl overflow-hidden bg-gradient-to-b from-neutral-50/80 to-neutral-50 dark:from-neutral-900/80 dark:to-neutral-900 border border-neutral-200/50 dark:border-neutral-800/50 hover:border-neutral-400/30 dark:hover:border-neutral-600/30 hover:shadow-lg hover:shadow-neutral-200/20 dark:hover:shadow-neutral-900/20 transition-all duration-300"
                         >
-                            <Link href="/servicos/growth-lancamentos" className="block h-full">
+                            <Link href="/servicos/growth-lancamentos" className="block h-full group">
                                 <div className="p-5">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
@@ -696,7 +696,7 @@ export default function BentoGrid() {
                                                 Kaleidos Growth
                                             </p>
                                         </div>
-                                        <ArrowUpRight className="h-5 w-5 text-neutral-400 dark:text-neutral-500" />
+                                        <ArrowUpRight className="h-5 w-5 text-[#7CFF6B] dark:text-[#7CFF6B] group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors duration-200" />
                                     </div>
                                     <p className="text-sm text-neutral-600 dark:text-neutral-400 tracking-tight mb-4">
                                         {locale==='en' ? 'Growth strategies and planning of digital launches to maximize results and conversions.' : 'Estratégias de crescimento e planejamento de lançamentos digitais para maximizar resultados e conversões.'}

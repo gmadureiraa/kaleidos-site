@@ -60,7 +60,7 @@ export function Navbar() {
   const services = servicesBase[locale];
 
   return (
-    <nav className="bg-black border-b border-gray-800 sticky top-0 z-50">
+    <nav className="bg-black border-b border-gray-800 sticky top-0 z-50" role="navigation" aria-label="Navegação principal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 flex-nowrap gap-4">
           {/* Logo */}
@@ -132,32 +132,63 @@ export function Navbar() {
               </Link>
             </Button>
             {/* Language switcher - desktop */}
-            <div className="flex items-center gap-1 ml-2">
-              <button onClick={() => switchLocale('pt')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
-              <button onClick={() => switchLocale('en')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
+            <div className="flex items-center gap-1 ml-2" role="group" aria-label="Seletor de idioma">
+              <button 
+                onClick={() => switchLocale('pt')} 
+                className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}
+                aria-label="Alterar idioma para Português"
+                aria-pressed={locale === 'pt'}
+              >
+                PT
+              </button>
+              <button 
+                onClick={() => switchLocale('en')} 
+                className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}
+                aria-label="Alterar idioma para Inglês"
+                aria-pressed={locale === 'en'}
+              >
+                EN
+              </button>
             </div>
           </div>
 
           {/* Mobile: language switch + menu button */}
           <div className="lg:hidden flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <button onClick={() => switchLocale('pt')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}>PT</button>
-              <button onClick={() => switchLocale('en')} className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}>EN</button>
+            <div className="flex items-center gap-1" role="group" aria-label="Seletor de idioma">
+              <button 
+                onClick={() => switchLocale('pt')} 
+                className={`text-xs px-3 py-2 rounded touch-target ${locale==='pt'?'bg-white text-black':'text-white border border-white/30'}`}
+                aria-label="Alterar idioma para Português"
+                aria-pressed={locale === 'pt'}
+              >
+                PT
+              </button>
+              <button 
+                onClick={() => switchLocale('en')} 
+                className={`text-xs px-3 py-2 rounded touch-target ${locale==='en'?'bg-white text-black':'text-white border border-white/30'}`}
+                aria-label="Alterar idioma para Inglês"
+                aria-pressed={locale === 'en'}
+              >
+                EN
+              </button>
             </div>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white hover:text-gray-200"
+              aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-800 py-4">
+          <div id="mobile-navigation" className="lg:hidden border-t border-gray-800 py-4" role="navigation" aria-label="Navegação mobile">
             <div className="space-y-4">
               {/* Serviços */}
               <div>

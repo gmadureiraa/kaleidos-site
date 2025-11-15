@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useI18n } from "@/i18n/useI18n";
+import { generateFAQSchema } from "@/lib/seo-helpers";
 
 interface FAQItem {
   question: string;
@@ -62,8 +63,17 @@ export default function FAQSection() {
     );
   };
 
+  // Gerar FAQ schema para SEO
+  const faqSchema = generateFAQSchema(faqData);
+
   return (
     <section id="faq" className="w-full bg-neutral-100 py-16 sm:py-20 px-6">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-3xl border border-neutral-200 shadow-[0_8px_30px_rgba(0,0,0,0.05)] p-6 sm:p-8 md:p-10">
           <div className="mb-4">
@@ -91,15 +101,19 @@ export default function FAQSection() {
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left flex items-center justify-between bg-neutral-100 hover:bg-neutral-200/60 transition-colors px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border border-neutral-200"
+                    className="w-full text-left flex items-center justify-between bg-neutral-100 hover:bg-neutral-200/60 transition-colors px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                    aria-label={isOpen ? `Fechar: ${item.question}` : `Abrir: ${item.question}`}
                   >
-                    <h3 className="text-base sm:text-lg font-semibold text-neutral-900">
+                    <h3 id={`faq-question-${index}`} className="text-base sm:text-lg font-semibold text-neutral-900">
                       {item.question}
                     </h3>
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.25 }}
                       className="flex-shrink-0 ml-4 w-7 h-7 rounded-full bg-white border border-neutral-200 inline-flex items-center justify-center text-neutral-700"
+                      aria-hidden="true"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </motion.div>
@@ -108,11 +122,14 @@ export default function FAQSection() {
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
+                        id={`faq-answer-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25 }}
                         className="overflow-hidden"
+                        role="region"
+                        aria-labelledby={`faq-question-${index}`}
                       >
                         <div className="px-5 sm:px-6 pt-3 pb-5 bg-white border-x border-b border-neutral-200 rounded-b-2xl">
                           <div className="space-y-3">

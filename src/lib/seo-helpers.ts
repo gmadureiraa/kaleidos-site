@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getCaseData } from "./case-data";
 
 interface SEOProps {
   title: string;
@@ -54,6 +55,10 @@ export function generateSEOMetadata({
     },
     alternates: {
       canonical: fullUrl,
+      languages: {
+        'pt-BR': fullUrl,
+        'en': `${fullUrl}${fullUrl.includes('?') ? '&' : '?'}lang=en`,
+      },
     },
   };
 }
@@ -108,24 +113,129 @@ export const generateCaseStudySchema = (
   description: string,
   client: string,
   results: string,
-  datePublished: string
-) => ({
-  "@context": "https://schema.org",
-  "@type": "CaseStudy",
-  headline: title,
-  description,
-  author: {
-    "@type": "Organization",
-    name: "Kaleidos Digital",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Kaleidos Digital",
-  },
-  datePublished,
-  mainEntity: {
-    "@type": "Organization",
-    name: client,
-  },
-  result: results,
-});
+  datePublished: string,
+  url?: string,
+  imageUrl?: string
+) => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kaleidos.com.br";
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "CaseStudy",
+    headline: title,
+    description,
+    url: url ? `${siteUrl}${url}` : siteUrl,
+    image: imageUrl || `${siteUrl}/Kaleidos/imagens/Capa.png`,
+    author: {
+      "@type": "Organization",
+      name: "Kaleidos Digital",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/Kaleidos/imagens/Capa.png`,
+      },
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Kaleidos Digital",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/Kaleidos/imagens/Capa.png`,
+      },
+    },
+    datePublished,
+    mainEntity: {
+      "@type": "Organization",
+      name: client,
+    },
+    result: results,
+  };
+};
+
+// Helper para gerar FAQPage schema
+export const generateFAQSchema = (faqs: { question: string; answer: string | string[] }[]) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: Array.isArray(faq.answer) ? faq.answer.join(" ") : faq.answer,
+      },
+    })),
+  };
+};
+
+// Helper para gerar BreadcrumbList schema
+export const generateBreadcrumbSchema = (items: { label: string; href?: string }[]) => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kaleidos.com.br";
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: item.href ? `${siteUrl}${item.href}` : undefined,
+    })),
+  };
+};
+
+// Helper para gerar metadata de serviços
+export function generateServiceMetadata(serviceId: string, serviceName: string, description: string) {
+  const keywords = [
+    serviceName.toLowerCase(),
+    "kaleidos digital",
+    "marketing digital",
+    "serviços",
+    ...description.toLowerCase().split(" ").slice(0, 5),
+  ].join(", ");
+
+  return generateSEOMetadata({
+    title: `${serviceName} - Kaleidos Digital`,
+    description: description,
+    keywords: keywords,
+    ogImage: "/Kaleidos/imagens/Capa.png",
+    url: `/servicos/${serviceId}`,
+    type: "website",
+  });
+}
+
+// Helper para gerar metadata de cases
+export function generateCaseMetadata(caseId: string) {
+  const caseData = getCaseData(caseId);
+  
+  if (!caseData) {
+    return generateSEOMetadata({
+      title: "Case não encontrado",
+      description: "Case de sucesso da Kaleidos Digital",
+    });
+  }
+
+  const description = caseData.descricao || caseData.fraseImpactante || "Case de sucesso da Kaleidos Digital";
+  const keywords = [
+    ...caseData.tags,
+    ...caseData.servicos,
+    "kaleidos digital",
+    "marketing digital",
+    "case de sucesso",
+    caseData.nome.toLowerCase(),
+  ].join(", ");
+
+  // Pegar primeira imagem do case para OG image
+  const firstImage = caseData.media.find((m: { type: string }) => m.type === "image");
+  const ogImage = firstImage?.src || "/Kaleidos/imagens/Capa.png";
+
+  return generateSEOMetadata({
+    title: `${caseData.nome} - Case de Sucesso`,
+    description: description,
+    keywords: keywords,
+    ogImage: ogImage,
+    url: `/cases/${caseData.id}`,
+    type: "article",
+  });
+}

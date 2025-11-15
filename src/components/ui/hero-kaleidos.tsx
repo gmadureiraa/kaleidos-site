@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,22 +8,30 @@ import Image from "next/image"
 import { useI18n } from "@/i18n/useI18n"
 import { scrollToSection } from "@/hooks/use-smooth-scroll"
 import { useAnalytics } from "@/components/analytics"
-import { useUmami } from "@/hooks/use-umami"
 
 export default function HeroKaleidos() {
   const { t } = useI18n()
   const [mounted, setMounted] = useState(false)
   const { trackClick } = useAnalytics()
-  const { trackButtonClick } = useUmami()
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  const handleSeeCases = useCallback(() => {
+    trackClick("hero_see_cases", "hero");
+    scrollToSection("cases-section");
+  }, [trackClick]);
+
+  const handleContact = useCallback(() => {
+    trackClick("hero_contact", "hero");
+    scrollToSection("ajuda-section");
+  }, [trackClick]);
+
   if (!mounted) return null
 
   return (
-    <section className="relative h-[76.5vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-black hero-section">
+    <section className="relative h-[76.5vh] flex flex-col items-center justify-start px-4 sm:px-6 overflow-hidden bg-black hero-section pt-[10vh]">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-500/20 via-black to-black"></div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -37,10 +45,11 @@ export default function HeroKaleidos() {
           <div className="sm:hidden">
             <Image
               src="/Kaleidos/logo/Logos-10.svg"
-              alt="Kaleidos Logo"
+              alt="Kaleidos Digital - Logo da empresa"
               width={120}
               height={40}
               className="h-14 w-auto"
+              priority
             />
           </div>
           
@@ -48,10 +57,11 @@ export default function HeroKaleidos() {
           <div className="hidden sm:block">
             <Image
               src="/Kaleidos/logo/Logos-10.svg"
-              alt="Kaleidos Logo"
+              alt="Kaleidos Digital - Logo da empresa"
               width={120}
               height={40}
               className="h-20 w-auto"
+              priority
             />
           </div>
           
@@ -69,24 +79,18 @@ export default function HeroKaleidos() {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center">
           <Button 
             size="lg" 
-            onClick={() => {
-              trackClick("hero_see_cases", "hero");
-              trackButtonClick("hero_see_cases", "hero", "scroll_to_cases");
-              scrollToSection("cases-section");
-            }}
-            className="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto shadow-lg touch-target"
+            onClick={handleSeeCases}
+            className="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto shadow-lg touch-target focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2"
+            aria-label={t('home','heroSeeCases')}
           >
             {t('home','heroSeeCases')}
           </Button>
           <Button
             size="lg"
             variant="outline"
-            onClick={() => {
-              trackClick("hero_contact", "hero");
-              trackButtonClick("hero_contact", "hero", "scroll_to_contact");
-              scrollToSection("ajuda-section");
-            }}
-            className="border-white text-white hover:bg-white hover:text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto bg-transparent touch-target"
+            onClick={handleContact}
+            className="border-white text-white hover:bg-white hover:text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto bg-transparent touch-target focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+            aria-label={t('home','heroContact')}
           >
             {t('home','heroContact')}
           </Button>
@@ -96,9 +100,9 @@ export default function HeroKaleidos() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-4 sm:bottom-8"
+        className="absolute bottom-[15%] sm:bottom-[16%]"
       >
-        <div className="text-white animate-bounce">
+        <div className="text-white animate-bounce" aria-hidden="true">
           <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6" />
         </div>
       </motion.div>

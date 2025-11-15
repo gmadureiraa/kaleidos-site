@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import { FooterDemo } from "@/components/ui/footer-demo";
+import { generateServiceSchema } from "@/lib/seo-helpers";
 
 export default function KaleidosContentPage() {
   const { locale } = useI18n();
@@ -53,8 +54,19 @@ export default function KaleidosContentPage() {
 
 
 
+  const serviceSchema = generateServiceSchema(
+    "Marketing de Conteúdo",
+    "Criação de conteúdo criativo que faz sua audiência parar e pensar. Copy persuasiva, roteiros virais, edição de vídeos e estratégias que convertem."
+  );
+
   return (
     <main className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">

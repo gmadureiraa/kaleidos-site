@@ -19,6 +19,7 @@ import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
 import { FooterDemo } from "@/components/ui/footer-demo";
+import { generateServiceSchema } from "@/lib/seo-helpers";
 
 export default function KaleidosGrowthPage() {
   const { locale } = useI18n();
@@ -40,6 +41,11 @@ export default function KaleidosGrowthPage() {
     return () => clearInterval(autoplay);
   }, [api, isPaused]);
 
+  const serviceSchema = generateServiceSchema(
+    "Growth Strategy & Lançamentos",
+    "Estratégias de lançamento e crescimento que viralizam e vendem. Desenvolvimento de funis, campanhas e estratégias de crescimento para sua marca."
+  );
+
   const handleWhatsApp = () => {
     const message = locale==='en' ? 'Hello! I need Kaleidos Growth to create a viral launch. Can you help me?' : "Olá! Preciso da ajuda da Kaleidos Growth para criar um lançamento viral. Podem me ajudar?";
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -54,6 +60,12 @@ export default function KaleidosGrowthPage() {
 
   return (
     <main className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      
       {/* Hero Section */}
       <section className="relative min-h-[90vh] bg-white overflow-hidden">
         {/* Background Animation */}

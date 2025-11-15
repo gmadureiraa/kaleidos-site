@@ -47,12 +47,7 @@ ${mensagem}
     `;
 
     if (!resendApiKey) {
-      console.warn("RESEND_API_KEY não definido. Email não enviado. Conteúdo:", {
-        to,
-        subject,
-        text,
-      });
-      // Retorna 200 para não bloquear o fluxo; logs servem de fallback em dev
+      // Retorna 200 para não bloquear o fluxo em desenvolvimento
       return new Response(JSON.stringify({ ok: true, simulated: true }), {
         status: 200,
         headers: { "Content-Type": "application/json" },
@@ -73,8 +68,7 @@ ${mensagem}
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (error) {
-    console.error("/api/contact error", error);
+  } catch {
     return new Response(JSON.stringify({ ok: false, error: "server_error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
