@@ -1,11 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, Users, ArrowRight } from "lucide-react";
+import { ArrowLeft, Sparkles, Users, ArrowRight, Instagram, Twitter, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/useI18n";
 import Image from "next/image";
 import { FooterDemo } from "@/components/ui/footer-demo";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { useState } from "react";
 
 export default function SobrePage() {
   const { t, locale } = useI18n();
@@ -42,23 +50,6 @@ export default function SobrePage() {
         { title: "Agilidade e Eficiência", description: "Entendemos que tempo é dinheiro. Trabalhamos com agilidade sem comprometer a qualidade." },
       ]);
 
-  const teamItems = (isEn
-    ? [
-        { name: "Creative Designers", role: "Visual & UX/UI", description: "Experts in creating interfaces that delight and convert" },
-        { name: "Video Editors", role: "Motion & Storytelling", description: "Visual storytellers whose work goes viral" },
-        { name: "Digital Strategists", role: "Marketing & Growth", description: "Specialists in strategies that deliver results" },
-        { name: "Developers", role: "Tech & Innovation", description: "Creators of innovative technological solutions" },
-        { name: "Data Analysts", role: "Insights & Performance", description: "Experts in metrics and optimization" },
-        { name: "Project Managers", role: "Coordination & Delivery", description: "Ensure everything is delivered on time and with quality" },
-      ]
-    : [
-        { name: "Designers Criativos", role: "Visual & UX/UI", description: "Especialistas em criar interfaces que encantam e convertem" },
-        { name: "Editores de Vídeo", role: "Motion & Storytelling", description: "Contadores de histórias visuais que viralizam" },
-        { name: "Estrategistas Digitais", role: "Marketing & Growth", description: "Especialistas em estratégias que geram resultados" },
-        { name: "Desenvolvedores", role: "Tech & Innovation", description: "Criadores de soluções tecnológicas inovadoras" },
-        { name: "Analistas de Dados", role: "Insights & Performance", description: "Especialistas em métricas e otimização" },
-        { name: "Gestores de Projeto", role: "Coordination & Delivery", description: "Garantem que tudo seja entregue no prazo e com qualidade" },
-      ]);
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
@@ -169,17 +160,255 @@ export default function SobrePage() {
           </motion.div>
         </motion.section>
 
-        {/* Nossos Valores */}
+        {/* Nossa Equipe */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="mb-24"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 1.4 }}
+            transition={{ duration: 1.5, delay: 1.3 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black font-display">
+              {t('about','ourTeam')}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {t('about','teamSubtitle')}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 1.5 }}
+            className="relative"
+          >
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+                skipSnaps: false,
+                dragFree: true,
+              }}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {[
+                  // Co-founders primeiro
+                  { 
+                    name: "Gabriel Madureira", 
+                    role: "Co-Founder",
+                    image: "/Kaleidos/imagens/Equipe/Madureira.png",
+                    description: "Estrategista e visionário por trás da Kaleidos. Transforma ideias em resultados através de estratégias inovadoras de marketing digital.",
+                    social: {
+                      instagram: "https://www.instagram.com/gabrielmadureira",
+                      twitter: "https://twitter.com/gabrielmadureira",
+                      linkedin: "https://www.linkedin.com/in/gabrielmadureira",
+                      email: "gabriel@kaleidos.digital"
+                    }
+                  },
+                  { 
+                    name: "Nathalia Maciente", 
+                    role: "Co-founder",
+                    image: "/Kaleidos/imagens/Equipe/Nathalia.png",
+                    description: "Especialista em criação de conteúdo e estratégias de crescimento. Acredita no poder da narrativa para conectar marcas com audiências.",
+                    social: {
+                      instagram: "https://www.instagram.com/nathaliamaciente",
+                      linkedin: "https://www.linkedin.com/in/nathaliamaciente",
+                      email: "nathalia@kaleidos.digital"
+                    }
+                  },
+                  // Copywriter
+                  { 
+                    name: "Caio Crispim", 
+                    role: "Copywriter",
+                    image: "/Kaleidos/imagens/Equipe/Caio.png",
+                    description: "Mestre das palavras que convertem. Cria copy que não apenas vende, mas também conecta e engaja audiências de forma autêntica.",
+                    social: {
+                      instagram: "https://www.instagram.com/caiocrispim",
+                      twitter: "https://twitter.com/caiocrispim",
+                      linkedin: "https://www.linkedin.com/in/caiocrispim",
+                      email: "caio@kaleidos.digital"
+                    }
+                  },
+                  // Social Media
+                  { 
+                    name: "Gabriel Rebelo", 
+                    role: "Social Media",
+                    image: "/Kaleidos/imagens/Equipe/Rebelo.png",
+                    description: "Estrategista de redes sociais que entende algoritmos e audiências. Cria conteúdo que viraliza e constrói comunidades engajadas.",
+                    social: {
+                      instagram: "https://www.instagram.com/gabrielrebelo",
+                      twitter: "https://twitter.com/gabrielrebelo",
+                      linkedin: "https://www.linkedin.com/in/gabrielrebelo",
+                      email: "gabriel.rebelo@kaleidos.digital"
+                    }
+                  },
+                  // Editor de vídeo e Motion
+                  { 
+                    name: "Alef Damaceno", 
+                    role: "Editor de vídeo e Motion",
+                    image: "/Kaleidos/imagens/Equipe/Alef.png",
+                    description: "Artista visual que transforma histórias em experiências cinematográficas. Especialista em edição, motion graphics e storytelling visual.",
+                    social: {
+                      instagram: "https://www.instagram.com/alefdamaceno",
+                      linkedin: "https://www.linkedin.com/in/alefdamaceno",
+                      email: "alef@kaleidos.digital"
+                    }
+                  },
+                ].map((member, index) => {
+                  const TeamCard = () => {
+                    const [isFlipped, setIsFlipped] = useState(false);
+                    
+                    return (
+                      <div
+                        className="relative w-full h-[400px] group [perspective:2000px]"
+                        onMouseEnter={() => setIsFlipped(true)}
+                        onMouseLeave={() => setIsFlipped(false)}
+                      >
+                        <div
+                          className={`relative w-full h-full [transform-style:preserve-3d] transition-all duration-700 ${
+                            isFlipped ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0deg)]"
+                          }`}
+                        >
+                          {/* Front of card */}
+                          <div
+                            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(0deg)] overflow-hidden rounded-2xl bg-white border border-black transition-all duration-700 ${
+                              isFlipped ? "opacity-0" : "opacity-100"
+                            }`}
+                            style={{
+                              boxShadow: isFlipped 
+                                ? '0 0 0 rgba(0, 0, 0, 0)' 
+                                : '0 2px 8px rgba(0, 0, 0, 0.05)'
+                            }}
+                          >
+                            <div className="flex flex-col items-center justify-center h-full p-8">
+                              <div className="relative w-32 h-32 mb-6 rounded-full overflow-hidden border-2 border-gray-200 group-hover:scale-110 transition-transform duration-300">
+                                <Image
+                                  src={member.image}
+                                  alt={member.name}
+                                  fill
+                                  className="object-cover"
+                                  sizes="128px"
+                                />
+                              </div>
+                              <h3 className="text-xl font-bold mb-2 text-black text-center">{member.name}</h3>
+                              <p className="text-gray-500 font-medium text-center mb-4">{member.role}</p>
+                              <div className="flex items-center gap-2 text-sm text-gray-400">
+                                <span>Passe o mouse</span>
+                                <ArrowRight className="w-4 h-4" />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Back of card */}
+                          <div
+                            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] p-6 rounded-2xl bg-white border border-black flex flex-col transition-all duration-700 ${
+                              !isFlipped ? "opacity-0" : "opacity-100"
+                            }`}
+                            style={{
+                              boxShadow: !isFlipped 
+                                ? '0 0 0 rgba(0, 0, 0, 0)' 
+                                : '0 2px 8px rgba(0, 0, 0, 0.05)'
+                            }}
+                          >
+                            <div className="flex-1 space-y-4">
+                              <div className="text-center">
+                                <h3 className="text-lg font-bold mb-2 text-black">{member.name}</h3>
+                                <p className="text-sm text-gray-500 mb-4">{member.role}</p>
+                              </div>
+                              <p className="text-sm text-gray-600 leading-relaxed text-center">
+                                {member.description}
+                              </p>
+                            </div>
+
+                            <div className="pt-4 mt-4 border-t border-gray-200">
+                              <div className="flex items-center justify-center gap-4">
+                                {member.social.instagram && (
+                                  <a
+                                    href={member.social.instagram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-pink-500 transition-colors"
+                                    aria-label="Instagram"
+                                  >
+                                    <Instagram className="h-5 w-5" />
+                                  </a>
+                                )}
+                                {member.social.twitter && (
+                                  <a
+                                    href={member.social.twitter}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                                    aria-label="Twitter"
+                                  >
+                                    <Twitter className="h-5 w-5" />
+                                  </a>
+                                )}
+                                {member.social.linkedin && (
+                                  <a
+                                    href={member.social.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-blue-600 transition-colors"
+                                    aria-label="LinkedIn"
+                                  >
+                                    <Linkedin className="h-5 w-5" />
+                                  </a>
+                                )}
+                                {member.social.email && (
+                                  <a
+                                    href={`mailto:${member.social.email}`}
+                                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                                    aria-label="Email"
+                                  >
+                                    <Mail className="h-5 w-5" />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  };
+
+                  return (
+                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.7 + (index * 0.1) }}
+                        className="py-4"
+                      >
+                        <TeamCard />
+                      </motion.div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-12" />
+              <CarouselNext className="hidden md:flex -right-12" />
+            </Carousel>
+          </motion.div>
+        </motion.section>
+
+        {/* Nossos Valores */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-24"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 1.9 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black font-display">
@@ -193,7 +422,7 @@ export default function SobrePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 1.6 }}
+            transition={{ duration: 1.5, delay: 2.1 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {valuesItems.map((value, index) => (
@@ -201,7 +430,7 @@ export default function SobrePage() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, delay: 1.8 + (index * 0.1) }}
+                transition={{ duration: 1.5, delay: 2.3 + (index * 0.1) }}
                 className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -209,52 +438,6 @@ export default function SobrePage() {
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-black">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Nossa Equipe */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-24"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 2.4 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black font-display">
-              {t('about','ourTeam')}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {t('about','teamSubtitle')}
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 2.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {teamItems.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, delay: 2.8 + (index * 0.1) }}
-                className="text-center group"
-              >
-                <div className="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-10 h-10 text-gray-600" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-black">{member.name}</h3>
-                <p className="text-gray-500 font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -270,7 +453,7 @@ export default function SobrePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 3.6 }}
+            transition={{ duration: 1.5, delay: 2.9 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black font-display">
@@ -279,7 +462,7 @@ export default function SobrePage() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 3.8 }}
+              transition={{ duration: 1.5, delay: 3.1 }}
               className="text-xl text-gray-600 max-w-2xl mx-auto"
             >
               {t('about','numbersSubtitle')}
@@ -289,13 +472,13 @@ export default function SobrePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 4.0 }}
+            transition={{ duration: 1.5, delay: 3.3 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 4.2 }}
+              transition={{ duration: 1.5, delay: 3.5 }}
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-bold text-black mb-3">150+</div>
@@ -304,7 +487,7 @@ export default function SobrePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 4.4 }}
+              transition={{ duration: 1.5, delay: 3.7 }}
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-bold text-black mb-3">20M+</div>
@@ -313,7 +496,7 @@ export default function SobrePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 4.6 }}
+              transition={{ duration: 1.5, delay: 3.9 }}
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-bold text-black mb-3">50+</div>
@@ -322,7 +505,7 @@ export default function SobrePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 4.8 }}
+              transition={{ duration: 1.5, delay: 4.1 }}
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-bold text-black mb-3">98%</div>
@@ -341,13 +524,13 @@ export default function SobrePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 5.0 }}
+            transition={{ duration: 1.5, delay: 4.3 }}
             className="bg-black p-12 md:p-16 rounded-3xl text-white"
           >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 5.2 }}
+              transition={{ duration: 1.5, delay: 4.5 }}
               className="text-3xl md:text-4xl font-bold mb-6 font-display"
             >
               {t('about','ctaTitle')}
@@ -355,7 +538,7 @@ export default function SobrePage() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 5.4 }}
+              transition={{ duration: 1.5, delay: 4.7 }}
               className="text-xl mb-8 opacity-90 max-w-2xl mx-auto"
             >
               {t('about','ctaText')}

@@ -99,18 +99,6 @@ export function CtaAjuda({ variant = "dark" }: { variant?: "dark" | "light" }) {
       value: locale==='en' ? 'landing pages' : 'landing pages'
     },
     {
-      title: locale==='en' ? 'Branding' : 'Branding',
-      description: locale==='en' ? 'Brand voice and identity system' : 'Voz da marca e identidade visual',
-      icon: Brush,
-      value: 'branding'
-    },
-    {
-      title: locale==='en' ? 'Community Management' : 'Gestão de Comunidade',
-      description: locale==='en' ? 'Discord/Telegram structure and moderation' : 'Estrutura e moderação em Discord/Telegram',
-      icon: Workflow,
-      value: locale==='en' ? 'community management' : 'gestão de comunidade'
-    },
-    {
       title: locale==='en' ? 'Web Development' : 'Desenvolvimento Web',
       description: locale==='en' ? 'Next.js websites and integrations' : 'Sites em Next.js e integrações',
       icon: Workflow,

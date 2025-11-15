@@ -128,7 +128,7 @@ function getBentoItems(locale: 'pt'|'en'): BentoItem[] {
             href: "/servicos/ia-automacoes",
             feature: "typing",
             typingText:
-                "const agent = new AIAgent({\n  model: 'gpt-4-turbo',\n  tools: [copywriting, dataAnalysis],\n  memory: new ConversationalMemory()\n});\n\nawait agent.learn(domainData);\nreturn agent;",
+                "const agent = new KaleidosAgent({\n  capabilities: ['automation', 'content', 'analytics'],\n  learning: continuous,\n  schedule: alwaysOn\n});\n\nagent.deploy();\n// Automação que escala com seu negócio",
             size: "md",
             className: "col-span-2 row-span-1 col-start-1 col-end-3",
         },
@@ -311,7 +311,7 @@ const IconsFeature = () => {
                     <Plus className="w-6 h-6 text-neutral-600 dark:text-neutral-400 transition-transform " />
                 </div>
                 <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
-                    More
+                    Mais
                 </span>
             </motion.div>
         </div>
@@ -390,11 +390,6 @@ const TypingCodeFeature = ({ text }: { text: string }) => {
 
     return (
         <div className="mt-3 relative">
-            <div className="flex items-center gap-2 mb-2">
-                <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                    server.ts
-                </div>
-            </div>
             <div
                 ref={terminalRef}
                 className="bg-neutral-900 dark:bg-black text-neutral-100 p-3 rounded-md text-xs font-mono h-[150px] overflow-y-auto"
