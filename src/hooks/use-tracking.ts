@@ -15,29 +15,39 @@ export function useTracking() {
     }
   }, [pathname, trackPageView]);
 
-  // Track scroll depth
+  // Track scroll depth (throttled + passive — evita trabalho a cada pixel e corrige marcos 25/50/75)
   useEffect(() => {
-    let scrollTracked = false;
+    const hit = { 25: false, 50: false, 75: false };
+    let ticking = false;
+
     const handleScroll = () => {
-      if (scrollTracked) return;
-      
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY;
-      const percentage = Math.round((scrolled / scrollHeight) * 100);
-      
-      // Track at key milestones
-      if (percentage >= 25 && percentage < 50) {
-        trackScroll(25);
-        scrollTracked = true;
-      } else if (percentage >= 50 && percentage < 75) {
-        trackScroll(50);
-      } else if (percentage >= 75) {
-        trackScroll(75);
-      }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const scrollHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollHeight <= 0) return;
+
+        const percentage = Math.round((window.scrollY / scrollHeight) * 100);
+
+        if (percentage >= 75 && !hit[75]) {
+          hit[75] = true;
+          trackScroll(75);
+        }
+        if (percentage >= 50 && !hit[50]) {
+          hit[50] = true;
+          trackScroll(50);
+        }
+        if (percentage >= 25 && !hit[25]) {
+          hit[25] = true;
+          trackScroll(25);
+        }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [trackScroll]);
 
   // Track time on page

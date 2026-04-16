@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/manifesto",
+        destination: "/sobre",
+        permanent: true,
+      },
+    ];
+  },
+
   // Otimização de imagens
   images: {
     domains: ["images.unsplash.com"],

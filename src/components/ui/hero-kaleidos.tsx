@@ -16,19 +16,20 @@ function AnimatedCounter({ target, suffix = "" }: { target: string; suffix?: str
   const numericTarget = parseInt(target.replace(/[^0-9]/g, ""))
 
   useEffect(() => {
-    let start = 0
+    let raf = 0
     const duration = 2000
-    const increment = numericTarget / (duration / 16)
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= numericTarget) {
-        setCount(numericTarget)
-        clearInterval(timer)
+    const start = performance.now()
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration)
+      setCount(Math.floor(numericTarget * t))
+      if (t < 1) {
+        raf = requestAnimationFrame(tick)
       } else {
-        setCount(Math.floor(start))
+        setCount(numericTarget)
       }
-    }, 16)
-    return () => clearInterval(timer)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [numericTarget])
 
   return (
@@ -41,21 +42,14 @@ function AnimatedCounter({ target, suffix = "" }: { target: string; suffix?: str
 export default function HeroKaleidos() {
   const { locale } = useI18n()
   const isEn = locale === "en"
-  const [mounted, setMounted] = useState(false)
   const { trackClick } = useAnalytics()
   const withLang = (path: string) => locale === 'en' ? `${path}${path.includes('?') ? '&' : '?'}lang=en` : path
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleContact = useCallback(() => {
     trackClick("hero_contact", "hero")
     scrollToSection("ajuda-section")
   }, [trackClick])
-
-  if (!mounted) return null
 
   return (
     <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-black hero-section">

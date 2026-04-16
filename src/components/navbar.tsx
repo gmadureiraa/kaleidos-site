@@ -137,13 +137,6 @@ export function Navbar() {
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/manifesto" className="text-white/60 hover:text-white bg-transparent border-none px-4 py-2 rounded-md text-sm transition-colors">
-                      Manifesto
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
             {/* CTA Button */}
